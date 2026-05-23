@@ -129,8 +129,8 @@ Header Section Start
 }
 
 .header .logo {
-  /* width: 15%; */
-  height: 3rem;
+  height: 4.4rem;
+  width: auto;
 }
 
 .navbar-lists {
@@ -481,7 +481,8 @@ Services Section
   box-shadow: 0px 16px 48px 0px rgba(99, 102, 241, 0.18);
 }
 
-.serive-icon {
+.serive-icon,
+.service-icon {
   width: 8rem;
   height: 8rem;
   background-color: rgba(99, 102, 241, 0.12);
@@ -493,7 +494,8 @@ Services Section
   animation: water-wave 3s linear infinite;
 }
 
-.serive-icon::after {
+.serive-icon::after,
+.service-icon::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -960,6 +962,55 @@ Footer Section
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 2rem;
 }
+/* ===========================================
+Key Responsibilities Box (Resume Section)
+======================================= */
+.resume-key-responsibilities {
+  margin-top: -1rem;
+  margin-bottom: 3rem;
+  padding: 2rem 2.4rem;
+  background: var(--helper-tint);
+  border-radius: 12px;
+  border-left: 4px solid var(--helper);
+}
+
+.resume-key-responsibilities .responsibilities-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--helper);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.2rem;
+}
+
+.responsibilities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem 2.4rem;
+  padding-left: 0;
+  list-style: none;
+}
+
+.responsibilities-grid li {
+  font-size: 1.4rem;
+  color: var(--heading);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.responsibilities-grid li ion-icon {
+  color: var(--helper);
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .responsibilities-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ===========================================
 Media Queries Section - Responsive Design
 ======================================= */
@@ -2411,6 +2462,224 @@ Website Development Cards Section
   .card-performance-tag {
     justify-content: center;
     text-align: center;
+  }
+}
+
+/* ===========================================
+Partner Badges & Trust Section
+======================================= */
+.section-partners {
+  background: var(--third);
+  padding: 9rem 0;
+}
+
+.common-heading--sm {
+  font-size: 3.2rem !important;
+  margin-bottom: 0 !important;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
+  margin-top: 4rem;
+}
+
+.partner-badge {
+  text-align: center;
+  padding: 2.4rem 1.6rem;
+  background: var(--bg);
+  border-radius: 12px;
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.partner-badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.12);
+  border-color: var(--helper);
+}
+
+.partner-badge-icon {
+  width: 5.6rem;
+  height: 5.6rem;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+}
+
+.partner-badge-icon ion-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  color: var(--third);
+}
+
+.partner-badge h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 0.4rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.partner-badge p {
+  font-size: 1.2rem;
+  color: var(--para);
+  margin-bottom: 0.8rem;
+}
+
+.partner-badge .partner-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--helper);
+}
+
+.partner-badge .partner-rating ion-icon {
+  color: #fbbf24;
+  font-size: 1.4rem;
+}
+
+.partner-metrics {
+  background: var(--gradient);
+  padding: 9rem 0;
+  text-align: center;
+  color: var(--third);
+}
+
+.partner-metrics .grid-four-col {
+  gap: 3rem;
+}
+
+.partner-metrics h3 {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: var(--third);
+  margin-bottom: 0.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.partner-metrics p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.5rem;
+}
+
+.partner-metrics-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 980px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .partner-metrics h3 {
+    font-size: 2.8rem;
+  }
+  .section-partners {
+    padding: 7rem 0;
+  }
+  .partner-metrics {
+    padding: 7rem 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .partners-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+  }
+  .partner-metrics .grid-four-col {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .partner-metrics h3 {
+    font-size: 2.4rem;
+  }
+  .section-partners {
+    padding: 4rem 0;
+  }
+  .partner-metrics {
+    padding: 4rem 0;
+  }
+}
+
+/* ===========================================
+   Centered headings for full-width sections
+   (Not used in 2-col grid sections like Bio/Resume)
+=========================================== */
+.section-tech .common-heading,
+.section-portfolio > .container .common-heading,
+.section-project-cards > .container .common-heading,
+.section-services > .container .common-heading,
+.section-achievements > .container .common-heading,
+.section-testimonial > .container .common-heading,
+.section-contact > .container .common-heading {
+  text-align: center;
+}
+
+.section-tech .common-heading::before,
+.section-portfolio > .container .common-heading::before,
+.section-project-cards > .container .common-heading::before,
+.section-services > .container .common-heading::before,
+.section-achievements > .container .common-heading::before,
+.section-testimonial > .container .common-heading::before,
+.section-contact > .container .common-heading::before {
+  left: calc(50% - 3.75rem);
+}
+
+.section-tech .common-heading::after,
+.section-portfolio > .container .common-heading::after,
+.section-project-cards > .container .common-heading::after,
+.section-services > .container .common-heading::after,
+.section-achievements > .container .common-heading::after,
+.section-testimonial > .container .common-heading::after,
+.section-contact > .container .common-heading::after {
+  left: calc(50% - 2.25rem);
+  width: 6rem;
+}
+
+/* Center the description paragraph below each centered heading */
+.section-tech > .container > p,
+.section-portfolio > .container > p,
+.section-project-cards > .container > p,
+.section-services > .container > p,
+.section-achievements > .container > p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive override for centered heading decoration at 560px */
+@media (max-width: 560px) {
+  .section-tech .common-heading::before,
+  .section-portfolio > .container .common-heading::before,
+  .section-project-cards > .container .common-heading::before,
+  .section-services > .container .common-heading::before,
+  .section-achievements > .container .common-heading::before,
+  .section-testimonial > .container .common-heading::before,
+  .section-contact > .container .common-heading::before {
+    left: calc(50% - 3rem);
+  }
+  .section-tech .common-heading::after,
+  .section-portfolio > .container .common-heading::after,
+  .section-project-cards > .container .common-heading::after,
+  .section-services > .container .common-heading::after,
+  .section-achievements > .container .common-heading::after,
+  .section-testimonial > .container .common-heading::after,
+  .section-contact > .container .common-heading::after {
+    left: calc(50% - 2rem);
+    width: 5rem;
   }
 }
 

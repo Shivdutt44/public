@@ -248,31 +248,24 @@ const workSection = document.querySelector(".section-work-data");
 const workSectionObserve = (entries) => {
     const [entry] = entries;
     if (!entry.isIntersecting) return;
-    console.log(entries);
-
 
     const counterNum = document.querySelectorAll(".counter-numbers");
-    // console.log(counterNum);
     const speed = 200;
 
     counterNum.forEach((curNumber) => {
+        const targetNumber = parseInt(curNumber.dataset.number);
+        let current = 0;
+        const incrementNumber = Math.max(1, Math.trunc(targetNumber / speed));
         const updateNumber = () => {
-            const targetNumber = parseInt(curNumber.dataset.number);
-            // console.log(targetNumber);
-            const initialNumber = parseInt(curNumber.innerText);
-            // console.log(initialNumber);
-            const incrementNumber = Math.trunc(targetNumber / speed);
-            // i am adding the value to the main number
-            // console.log(incrementNumber);
-
-            if (initialNumber < targetNumber) {
-                curNumber.innerText = `${initialNumber + incrementNumber}+`;
+            current += incrementNumber;
+            if (current < targetNumber) {
+                curNumber.innerText = `${current}+`;
                 setTimeout(updateNumber, 10);
             } else {
                 curNumber.innerText = `${targetNumber}+`;
             }
-
         };
+        curNumber.innerText = "0";
         updateNumber();
     });
 };

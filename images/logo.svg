@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 44" width="260" height="44" role="img" aria-label="Shiv Dutt Chauhan Logo">
+  <title>Shiv Dutt Chauhan</title>
+
+  <!-- Dark background pill -->
+  <rect width="260" height="44" rx="7" fill="#0f172a"/>
+
+  <!-- Left accent bar (brand indigo) -->
+  <rect x="11" y="9" width="3.5" height="26" rx="1.8" fill="#6366f1"/>
+
+  <!-- "SDC" monogram -->
+  <text x="21" y="29"
+    font-family="'Arial Black', 'Impact', Arial, sans-serif"
+    font-size="15"
+    font-weight="900"
+    fill="#6366f1"
+    letter-spacing="1">SDC</text>
+
+  <!-- Vertical divider -->
+  <rect x="62" y="10" width="1.2" height="24" rx="0.6" fill="#334155"/>
+
+  <!-- "SHIV DUTT" - top line -->
+  <text x="73" y="20"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="10"
+    font-weight="700"
+    fill="#ffffff"
+    letter-spacing="2.5">SHIV DUTT</text>
+
+  <!-- "CHAUHAN" - bottom line (brand color) -->
+  <text x="73" y="34"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="10"
+    font-weight="700"
+    fill="#6366f1"
+    letter-spacing="2.5">CHAUHAN</text>
+</svg>
