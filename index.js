@@ -36,25 +36,24 @@ if (sectionHero) observer.observe(sectionHero);
 // ========================================
 //  how to add media queries in JS
 // ========================================
-function myFunction(widthSize) {
-    if (!document.querySelector(".swiper")) return;
+function initTestimonialSwiper(widthSize) {
+    if (!document.querySelector(".mySwiper")) return;
     if (widthSize.matches) {
         // If media query matches
-        const swiper = new Swiper(".swiper", {
+        new Swiper(".mySwiper", {
             slidesPerView: 1,
             spaceBetween: 30,
             autoplay: {
                 delay: 2500,
                 disableOnInteraction: false,
             },
-
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
             },
         });
     } else {
-        const swiper = new Swiper(".swiper", {
+        new Swiper(".mySwiper", {
             slidesPerView: 2,
             spaceBetween: 30,
             autoplay: {
@@ -71,9 +70,31 @@ function myFunction(widthSize) {
 
 const widthSize = window.matchMedia("(max-width: 780px)");
 // Call listener function at run time
-myFunction(widthSize);
+initTestimonialSwiper(widthSize);
 // Attach listener function on state changes
-widthSize.addListener(myFunction);
+widthSize.addListener(initTestimonialSwiper);
+
+// ========================================
+//  Bio Data Swiper (Single image slideshow)
+// ========================================
+function initBioSwiper() {
+    if (!document.querySelector(".bioSwiper")) return;
+    new Swiper(".bioSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        loop: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+}
+
+initBioSwiper();
 
 // ========================================
 //  scroll to top
@@ -156,11 +177,49 @@ if (typedRoleEl) {
 // get the data attributes
 
 // ========================================
+//  Resume Modal Open/Close
+// ========================================
+function openResumeModal() {
+    const modal = document.getElementById("resumeModal");
+    if (modal) {
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function closeResumeModal(event) {
+    const modal = document.getElementById("resumeModal");
+    if (!modal) return;
+    // If event is from overlay click (event exists and target is overlay), close
+    if (event && event.target !== modal) return;
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+}
+
+// Close modal on Escape key
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        const modal = document.getElementById("resumeModal");
+        if (modal && modal.classList.contains("active")) {
+            modal.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+    }
+});
+
+// ========================================
+//  Dynamic Copyright Year
+// ========================================
+const yearSpan = document.getElementById("copyright-year");
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+
+// ========================================
 //  smooth scrolling
 // ========================================
 
 const portfolioSection = document.querySelector(".section-portfolio");
-const contactSection = document.querySelector(".section-contact");
 
 const portfolioLinkEl = document.querySelector(".portfolio-link");
 if (portfolioLinkEl && portfolioSection) {
@@ -170,13 +229,8 @@ if (portfolioLinkEl && portfolioSection) {
     });
 }
 
-const hireMeBtnEl = document.querySelector(".hireme-btn");
-if (hireMeBtnEl && contactSection) {
-    hireMeBtnEl.addEventListener("click", (e) => {
-        e.preventDefault();
-        contactSection.scrollIntoView({ behavior: "smooth" });
-    });
-}
+// Hire Me buttons now redirect to WhatsApp directly (via href in HTML)
+// No JS needed — preventDefault would block the external link
 
 // ========================================
 // creating a portfolio tabbed component

@@ -110,7 +110,7 @@
   </head>
   <body>
     <header class="header">
-      <img src="images/logo.svg" alt="Shiv Dutt Chauhan logo" class="logo" />
+      <a href="/index.html"><img src="images/logo.svg" alt="Shiv Dutt Chauhan logo" class="logo" /></a>
       <nav class="navbar">
         <ul class="navbar-lists">
           <li>
@@ -130,6 +130,9 @@
           </li>
           <li>
             <a class="navbar-link" href="/websites.html">Websites</a>
+          </li>
+          <li>
+            <a class="navbar-link" href="/bengaluru.html">BTS 2026</a>
           </li>
           <li>
             <a class="navbar-link" href="/contact.html">Contact</a>
@@ -443,6 +446,7 @@
             <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/about.html">about</a></li>
             <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/service.html">services</a></li>
             <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/index.html#portfolio-section">portfolio</a></li>
+            <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/bengaluru.html">BTS 2026</a></li>
             <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/contact.html">contact</a></li>
           </ul>
         </div>
@@ -476,8 +480,8 @@
 
       <div class="container">
         <div class="f-social-icons">
-          <a href="https://www.instagram.com/" target="_blank">
-            <ion-icon class="icons" name="logo-instagram"></ion-icon>
+          <a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer">
+            <ion-icon class="icons" name="logo-whatsapp"></ion-icon>
           </a>
           <a href="https://github.com/Shivdutt44/" target="_blank">
             <ion-icon class="icons" name="logo-github"></ion-icon>
@@ -488,7 +492,7 @@
         </div>
 
         <div class="f-credits">
-          <p>Copyright &copy;2024 All rights reserved | Shiv Dutt Chauhan</p>
+          <p>Copyright &copy;<span id="copyright-year"></span> All rights reserved | Shiv Dutt Chauhan</p>
         </div>
       </div>
     </footer>
@@ -513,7 +517,11 @@
     ></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Message BOOST STAR Experts on WhatsApp">
+      <span class="whatsapp-float-tooltip">Message us on WhatsApp</span>
+      <span class="whatsapp-float-icon"><ion-icon name="logo-whatsapp"></ion-icon></span>
+    </a>
   </body>
 </html>
-
-

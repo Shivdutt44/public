@@ -95,7 +95,7 @@
   </head>
   <body>
     <header class="header">
-      <img src="images/logo.svg" alt="Shiv Dutt Chauhan" class="logo" />
+      <a href="/index.html"><img src="images/logo.svg" alt="Shiv Dutt Chauhan" class="logo" /></a>
       <nav class="navbar">
         <ul class="navbar-lists">
           <li>
@@ -115,6 +115,9 @@
           </li>
           <li>
             <a class="navbar-link" href="/websites.html">Websites</a>
+          </li>
+          <li>
+            <a class="navbar-link" href="/bengaluru.html">BTS 2026</a>
           </li>
           <li>
             <a class="navbar-link" href="/contact.html">Contact</a>
@@ -156,8 +159,8 @@
           <div><h4>Phone</h4><p><a href="tel:+917985120858">+91 7985120858</a></p></div>
         </div>
         <div class="contact-info-item">
-          <div class="contact-info-icon"><ion-icon name="mail-outline"></ion-icon></div>
-          <div><h4>Email</h4><p><a href="mailto:shivduttchauhan2@gmail.com">shivduttchauhan2@gmail.com</a></p></div>
+          <div class="contact-info-icon" style="background:#25D366;"><ion-icon name="logo-whatsapp" style="color:#fff;"></ion-icon></div>
+          <div><h4>BOOST STAR Experts</h4><p><a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a></p></div>
         </div>
       </div>
 
@@ -194,6 +197,52 @@
     </section>
 
     <!-- ========================================
+          WhatsApp Connect Section
+    ========================================  -->
+    <section class="section section-whatsapp">
+      <div class="container whatsapp-connect-wrapper">
+        <div class="whatsapp-connect-card">
+          <div class="whatsapp-connect-left">
+            <div class="whatsapp-badge">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+              <span>Message Us</span>
+            </div>
+            <h2>Connect with <span>BOOST STAR Experts</span> on WhatsApp</h2>
+            <p>Get instant responses to your inquiries. Message us directly on WhatsApp for quick quotes, project discussions, or any questions about our Shopify development services, AI systems, and more.</p>
+            <div class="whatsapp-benefits">
+              <div class="whatsapp-benefit-item">
+                <ion-icon name="flash-outline"></ion-icon>
+                <span>Instant replies within minutes</span>
+              </div>
+              <div class="whatsapp-benefit-item">
+                <ion-icon name="chatbubbles-outline"></ion-icon>
+                <span>Direct chat with the development team</span>
+              </div>
+              <div class="whatsapp-benefit-item">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <span>Share project requirements easily</span>
+              </div>
+              <div class="whatsapp-benefit-item">
+                <ion-icon name="shield-checkmark-outline"></ion-icon>
+                <span>End-to-end encrypted conversations</span>
+              </div>
+            </div>
+            <a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+              Message on WhatsApp
+            </a>
+          </div>
+          <div class="whatsapp-connect-right">
+            <div class="whatsapp-qr-wrapper">
+              <img src="images/whatsapp-qr.png" alt="BOOST STAR Experts WhatsApp QR Code" class="whatsapp-qr-img" />
+              <p>Scan to chat</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
           Footer Section
     ========================================  -->
 
@@ -211,6 +260,7 @@
             <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/about.html">about</a></li>
             <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/service.html">services</a></li>
             <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/index.html#portfolio-section">portfolio</a></li>
+            <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/bengaluru.html">BTS 2026</a></li>
             <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/contact.html">contact</a></li>
           </ul>
         </div>
@@ -244,8 +294,8 @@
 
       <div class="container">
         <div class="f-social-icons">
-          <a href="https://www.instagram.com/" target="_blank">
-            <ion-icon class="icons" name="logo-instagram"></ion-icon>
+          <a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer">
+            <ion-icon class="icons" name="logo-whatsapp"></ion-icon>
           </a>
           <a href="https://github.com/Shivdutt44/" target="_blank">
             <ion-icon class="icons" name="logo-github"></ion-icon>
@@ -256,10 +306,16 @@
         </div>
 
         <div class="f-credits">
-          <p>Copyright &copy;2024 All rights reserved | Shiv Dutt Chauhan</p>
+          <p>Copyright &copy;<span id="copyright-year"></span> All rights reserved | Shiv Dutt Chauhan</p>
         </div>
       </div>
     </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Message BOOST STAR Experts on WhatsApp">
+      <span class="whatsapp-float-tooltip">Message us on WhatsApp</span>
+      <span class="whatsapp-float-icon"><ion-icon name="logo-whatsapp"></ion-icon></span>
+    </a>
 
     <!-- Scroll to Top -->
     <div class="scrollTop-style" id="scrollTopBtn" style="display:none;">

@@ -132,22 +132,19 @@
 
   <body>
     <header class="header">
-      <img
+      <a href="/index.html"><img
         src="images/logo.svg"
         alt="Shiv Dutt Chauhan"
         class="logo"
-      />
+      /></a>
       <nav class="navbar">
         <ul class="navbar-lists">
           <li><a class="navbar-link home-link" href="/index.html">Home</a></li>
           <li><a class="navbar-link about-link" href="/about.html">About</a></li>
           <li><a class="navbar-link service-link" href="/service.html">Services</a></li>
           <li><a class="navbar-link portfolio-link" href="#portfolio-section">Portfolio</a></li>          <li><a class="navbar-link" href="/projects.html">Projects</a></li>
-          <li><a class="navbar-link" href="/websites.html">Websites</a></li>
-          <li>
-            <a
-              class="navbar-link"
-              href="/contact.html">Contact</a>
+          <li><a class="navbar-link" href="/websites.html">Websites</a></li>          <li><a class="navbar-link" href="/bengaluru.html">BTS 2026</a></li>
+          <li><a class="navbar-link" href="/contact.html">Contact</a>
           </li>
         </ul>
       </nav>
@@ -181,7 +178,8 @@
               <strong>Full Stack Web Developer</strong> — Ex-CEDCOSS, now Senior Web Developer <strong>@ BOOST STAR Experts</strong> (Shopify Partner & Google Certified). Expert in <strong>Shopify, speed optimization, and technical SEO</strong> — building scalable AI-powered ecommerce apps, custom themes, WordPress/WooCommerce stores, and intelligent chatbots that drive real business results.
             </p>
             <div>
-              <a href="/contact.html" class="btn hireme-btn">Hire Me</a>
+              <a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer" class="btn hireme-btn" onclick="event.stopPropagation()">
+              <ion-icon name="logo-whatsapp" style="vertical-align:middle;"></ion-icon> Hire Me</a>
             </div>
           </div>
 
@@ -198,7 +196,7 @@
     <section class="section-biodata section">
       <div class="container grid grid-two-col">
         <div class="bio-image">
-          <img src="images/biodata.jpg" alt="bio data image" />
+          <img src="images/biodata/biodata-slide-3.jpg" alt="Shiv Dutt Chauhan" />
         </div>
         <div class="bio-data">
           <h2 class="common-heading">my bio-data</h2>
@@ -256,8 +254,11 @@
           </div>
 
           <div class="bio-data-btn" style="display:flex; gap:1.6rem; flex-wrap:wrap;">
-            <a href="mailto:shivduttchauhan2@gmail.com?subject=Request%20for%20CV" class="btn">Request CV</a>
-            <a href="/contact.html" class="btn" style="background:var(--heading);">Hire Me</a>
+            <a href="javascript:void(0)" class="btn" onclick="openResumeModal()">
+              <ion-icon name="document-text-outline" style="vertical-align:middle;"></ion-icon> View Resume
+            </a>
+            <a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer" class="btn" style="background:var(--heading);">
+              <ion-icon name="logo-whatsapp" style="vertical-align:middle;"></ion-icon> Hire Me</a>
           </div>
         </div>
       </div>
@@ -944,7 +945,8 @@
       <div class="container">
       <h2 >I am <span> available </span> for freelancing</h2>
       <p>Looking for an Agentic AI Developer or Shopify Expert? Let's build something amazing together — from AI-powered automation to scalable Shopify apps.</p>
-      <a href="/contact.html" class="btn"> HIRE ME </a>
+      <a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer" class="btn">
+              <ion-icon name="logo-whatsapp" style="vertical-align:middle;"></ion-icon> HIRE ME</a>
       </div>
     </section>
 
@@ -996,7 +998,8 @@
              <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/about.html">about</a></li>
               <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/service.html">services</a></li>
                <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/index.html#portfolio-section">portfolio</a></li>
-                 <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/contact.html">contact</a></li>
+                 <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/bengaluru.html">BTS 2026</a></li>
+            <li><span><ion-icon name="arrow-forward-outline"></ion-icon></span><a href="/contact.html">contact</a></li>
           </ul>
         </div>
 
@@ -1031,21 +1034,19 @@
 
       <div class="container">
         <div class="f-social-icons">
-          <a href="https://www.instagram.com/" target="_blank">
-            <ion-icon class="icons" name="logo-instagram"></ion-icon>
+          <a href="https://wa.me/message/DHPO5W3S7UYTC1" target="_blank" rel="noopener noreferrer">
+            <ion-icon class="icons" name="logo-whatsapp"></ion-icon>
           </a>
-
             <a href="https://github.com/Shivdutt44/" target="_blank">
            <ion-icon class="icons" name="logo-github"></ion-icon>
           </a>
-
             <a href="https://in.linkedin.com/in/shiv-dutt-chauhan-2b1a31101" target="_blank">
            <ion-icon class="icons" name="logo-linkedin"></ion-icon>
           </a>
         </div>
 
         <div class="f-credits">
-          <p>Copyright &copy;2024 All rights reserved | Shiv Dutt Chauhan</p>
+          <p>Copyright &copy;<span id="copyright-year"></span> All rights reserved | Shiv Dutt Chauhan</p>
         </div>
       </div>
 
@@ -1073,7 +1074,23 @@
     ></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
+
+  <!-- Resume Modal -->
+  <div id="resumeModal" class="resume-modal-overlay" onclick="closeResumeModal(event)">
+    <div class="resume-modal-container" onclick="event.stopPropagation()">
+      <div class="resume-modal-header">
+        <h3>Resume — Shiv Dutt Chauhan</h3>
+        <div class="resume-modal-actions">
+          <a href="images/resume/shivdutt-chauhan-resume.pdf" download class="btn resume-download-btn">
+            <ion-icon name="download-outline" style="vertical-align:middle;"></ion-icon> Download PDF
+          </a>
+          <button class="resume-modal-close" onclick="closeResumeModal()" aria-label="Close">&times;</button>
+        </div>
+      </div>
+      <div class="resume-modal-body">
+        <iframe src="images/resume/shivdutt-chauhan-resume.pdf" class="resume-iframe" title="Resume"></iframe>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
-
-
