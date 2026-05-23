@@ -31,12 +31,13 @@ const observer = new IntersectionObserver(
     }
 );
 // when the hero section end part reached then we need to show the sticky navigation
-observer.observe(sectionHero);
+if (sectionHero) observer.observe(sectionHero);
 
 // ========================================
 //  how to add media queries in JS
 // ========================================
 function myFunction(widthSize) {
+    if (!document.querySelector(".swiper")) return;
     if (widthSize.matches) {
         // If media query matches
         const swiper = new Swiper(".swiper", {
@@ -77,23 +78,80 @@ widthSize.addListener(myFunction);
 // ========================================
 //  scroll to top
 // ========================================
-const footerElm = document.querySelector(".section-footer");
+const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-const scrollElement = document.createElement("div");
-scrollElement.classList.add("scrollTop-style");
+// Show/hide the scroll-to-top button based on scroll position
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        if (scrollTopBtn) scrollTopBtn.style.display = "block";
+    } else {
+        if (scrollTopBtn) scrollTopBtn.style.display = "none";
+    }
+});
 
-// I am adding the button element inside the div element
-scrollElement.innerHTML = ` <ion-icon name="arrow-up-outline" class="scroll-top"></ion-icon>`;
-
-// add to the bottom of the page
-footerElm.after(scrollElement);
-
-// deleting the dom element
 const scrollTop = () => {
-    sectionHero.scrollIntoView({ behavior: "smooth" });
+    if (sectionHero) {
+        sectionHero.scrollIntoView({ behavior: "smooth" });
+    } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 };
 
-document.querySelector(".scroll-top").addEventListener("click", scrollTop);
+const scrollTopAnchor = document.querySelector(".scroll-top");
+if (scrollTopAnchor) {
+    scrollTopAnchor.addEventListener("click", (e) => {
+        e.preventDefault();
+        scrollTop();
+    });
+}
+
+// ========================================
+//  Typing Animation
+// ========================================
+const typedRoleEl = document.getElementById("typed-role");
+
+if (typedRoleEl) {
+    const roles = [
+        "Agentic AI Developer",
+        "Shopify App Developer",
+        "Shopify Theme Developer",
+        "Full Stack Engineer",
+        "AI Chatbot Builder"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    const typeRole = () => {
+        const currentRole = roles[roleIndex];
+
+        if (!isDeleting) {
+            typedRoleEl.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+
+            if (charIndex === currentRole.length) {
+                isDeleting = true;
+                setTimeout(typeRole, 1800);
+                return;
+            }
+            setTimeout(typeRole, 80);
+        } else {
+            typedRoleEl.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+
+            if (charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeRole, 300);
+                return;
+            }
+            setTimeout(typeRole, 40);
+        }
+    };
+
+    setTimeout(typeRole, 500);
+}
 
 // get the data attributes
 
@@ -104,15 +162,21 @@ document.querySelector(".scroll-top").addEventListener("click", scrollTop);
 const portfolioSection = document.querySelector(".section-portfolio");
 const contactSection = document.querySelector(".section-contact");
 
-document.querySelector(".portfolio-link").addEventListener("click", (e) => {
-    e.preventDefault();
-    portfolioSection.scrollIntoView({ behavior: "smooth" });
-});
+const portfolioLinkEl = document.querySelector(".portfolio-link");
+if (portfolioLinkEl && portfolioSection) {
+    portfolioLinkEl.addEventListener("click", (e) => {
+        e.preventDefault();
+        portfolioSection.scrollIntoView({ behavior: "smooth" });
+    });
+}
 
-document.querySelector(".hireme-btn").addEventListener("click", (e) => {
-    e.preventDefault();
-    contactSection.scrollIntoView({ behavior: "smooth" });
-});
+const hireMeBtnEl = document.querySelector(".hireme-btn");
+if (hireMeBtnEl && contactSection) {
+    hireMeBtnEl.addEventListener("click", (e) => {
+        e.preventDefault();
+        contactSection.scrollIntoView({ behavior: "smooth" });
+    });
+}
 
 // ========================================
 // creating a portfolio tabbed component
@@ -122,7 +186,7 @@ const port_btn = document.querySelector(".p-btns");
 const p_btn = document.querySelectorAll(".p-btn");
 const img_div = document.querySelectorAll(".img-ovelay");
 
-port_btn.addEventListener("click", (e) => {
+if (port_btn) port_btn.addEventListener("click", (e) => {
     // console.log(e.target);
 
     // we will get which child element was clicked
@@ -159,21 +223,21 @@ port_btn.addEventListener("click", (e) => {
 //  lazy loading section
 // ========================================
 const imgRef = document.querySelector("img[data-src]");
-console.log(imgRef);
 
-const lazyImg = (entries) => {
-    const [entry] = entries;
-    if (!entry.isIntersecting) return;
-    entry.target.src = imgRef.dataset.src;
-};
+if (imgRef) {
+    const lazyImg = (entries) => {
+        const [entry] = entries;
+        if (!entry.isIntersecting) return;
+        entry.target.src = imgRef.dataset.src;
+    };
 
-const imgObserver = new IntersectionObserver(lazyImg, {
-    root: null,
-    threshold: 0,
-    // rootMargin: "100px",
-});
+    const imgObserver = new IntersectionObserver(lazyImg, {
+        root: null,
+        threshold: 0,
+    });
 
-imgObserver.observe(imgRef);
+    imgObserver.observe(imgRef);
+}
 
 // ========================================
 //  animated counter number
@@ -213,9 +277,11 @@ const workSectionObserve = (entries) => {
     });
 };
 
-const workSecObserver = new IntersectionObserver(workSectionObserve, {
-    root: null,
-    threshold: 0,
-});
+if (workSection) {
+    const workSecObserver = new IntersectionObserver(workSectionObserve, {
+        root: null,
+        threshold: 0,
+    });
 
-workSecObserver.observe(workSection);
+    workSecObserver.observe(workSection);
+}
