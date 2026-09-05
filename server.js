@@ -76,7 +76,7 @@ const activityLogs = [
     id: 1,
     timestamp: new Date(Date.now() - 3600000).toISOString(),
     type: "AUTH",
-    message: "OAuth Client initialized with Client ID: " + (catalogConfig.clientId.substring(0, 8) + "..."),
+    message: "OAuth Client initialized with Client ID: " + (catalogConfig.clientId ? catalogConfig.clientId.substring(0, 8) + "..." : "Not Configured"),
     status: "success"
   },
   {
@@ -524,6 +524,154 @@ app.get("/api/shopify/catalog", async (req, res) => {
   }
 });
 
+// ==========================================
+// 2b. Get All Shopify Apps (AJAX Endpoint from Prisma DB)
+// ==========================================
+app.get("/api/shopify/apps", async (req, res) => {
+  try {
+    const apps = await prisma.app.findMany();
+    res.json({
+      success: true,
+      total: apps.length,
+      apps
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 1g. Shopify App Webhook Listener (Prisma DB + SSE Live Push)
+// ==========================================
+app.post("/api/shopify/webhooks/app", async (req, res) => {
+  try {
+    const topic = req.headers["x-shopify-topic"] || req.body.topic || "app_subscriptions/update";
+    const shopDomain = req.headers["x-shopify-shop-domain"] || req.body.shopDomain || "partner-merchant.myshopify.com";
+    const payload = req.body || {};
+    const timestamp = new Date().toISOString();
+
+    console.log(`\n⚡ [APP WEBHOOK RECEIVED] Topic: ${topic} from: ${shopDomain}`);
+
+    // 1. Prisma DB: Save webhook event
+    const savedEvent = await prisma.webhookEvent.create({
+      data: {
+        topic,
+        shopDomain,
+        payload: JSON.stringify(payload),
+        processed: true
+      }
+    });
+
+    // 2. Prisma DB: Automatically update target app
+    const apps = await prisma.app.findMany();
+    const targetApp = apps.find(a => payload.appId && a.id === payload.appId) || apps[0];
+    let updatedApp = null;
+    if (targetApp) {
+      const newInstalls = (targetApp.installs || 1000) + 1;
+      updatedApp = await prisma.app.upsert({
+        where: { id: targetApp.id },
+        update: {
+          installs: newInstalls,
+          status: "Active",
+          lastSync: `Live Webhook (${new Date().toLocaleTimeString()})`
+        },
+        create: targetApp
+      });
+    }
+
+    const logEntry = {
+      id: activityLogs.length + 1,
+      timestamp,
+      type: "APP_WEBHOOK",
+      message: `⚡ [PRISMA DB APP WEBHOOK] ${topic} received for "${updatedApp ? updatedApp.name : 'App'}" -> Saved to database & pushed live via AJAX/SSE!`,
+      status: "success"
+    };
+    activityLogs.unshift(logEntry);
+
+    // 3. Broadcast real-time SSE event
+    broadcastSSE({
+      type: "APP_UPDATED",
+      app: updatedApp,
+      topic,
+      shopDomain,
+      log: logEntry,
+      timestamp
+    });
+
+    res.json({
+      success: true,
+      message: "App Webhook persisted to Prisma DB and pushed to frontend in real-time!",
+      app: updatedApp,
+      webhookId: savedEvent.id
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// ==========================================
+// 1h. Test App Webhook (Demo for AJAX & SSE Live Stream)
+// ==========================================
+app.post("/api/shopify/webhooks/app/test", async (req, res) => {
+  try {
+    const apps = await prisma.app.findMany();
+    if (apps.length === 0) return res.status(404).json({ success: false, message: "No apps found" });
+
+    const randomApp = apps[Math.floor(Math.random() * apps.length)];
+    const newInstalls = randomApp.installs + Math.floor(Math.random() * 15) + 2;
+    const timestamp = new Date().toISOString();
+
+    // 1. Prisma DB: Save webhook event
+    const savedEvent = await prisma.webhookEvent.create({
+      data: {
+        topic: "app_subscriptions/update",
+        shopDomain: "partner-store.myshopify.com",
+        payload: JSON.stringify({ appId: randomApp.id, installs: newInstalls }),
+        processed: true
+      }
+    });
+
+    // 2. Prisma DB: Automatically update App in database
+    const updatedApp = await prisma.app.upsert({
+      where: { id: randomApp.id },
+      update: {
+        installs: newInstalls,
+        status: "Active",
+        lastSync: `Live Webhook (${new Date().toLocaleTimeString()})`
+      },
+      create: randomApp
+    });
+
+    const logMsg = `⚡ [PRISMA DB APP WEBHOOK] App "${updatedApp.name}" updated in database: ${newInstalls} active merchant installs. Live updated on UI via AJAX/SSE with 0 refresh!`;
+
+    const logEntry = {
+      id: activityLogs.length + 1,
+      timestamp,
+      type: "APP_WEBHOOK",
+      message: logMsg,
+      status: "success"
+    };
+    activityLogs.unshift(logEntry);
+
+    // 3. Broadcast to all connected clients
+    broadcastSSE({
+      type: "APP_UPDATED",
+      app: updatedApp,
+      log: logEntry,
+      timestamp
+    });
+
+    res.json({
+      success: true,
+      message: `App webhook executed & saved to Prisma DB!`,
+      app: updatedApp,
+      webhookId: savedEvent.id
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 // 3. Trigger Manual or Automated Sync
 app.post("/api/shopify/sync", (req, res) => {
   const syncTime = new Date().toISOString();
@@ -640,7 +788,7 @@ app.listen(PORT, () => {
   console.log(`🚀 Shopify Catalog Automation Server Running!`);
   console.log(`📍 Local URL: http://localhost:${PORT}`);
   console.log(`📦 Catalog ID: ${catalogConfig.catalogId}`);
-  console.log(`🔑 Client ID: ${catalogConfig.clientId.substring(0, 8)}...`);
+  console.log(`🔑 Client ID: ${catalogConfig.clientId ? catalogConfig.clientId.substring(0, 8) + "..." : "Not Configured"}`);
   console.log(`⚙️  Auto-sync: ${catalogConfig.autoSync ? "Enabled" : "Disabled"}`);
   console.log(`====================================================`);
 });
