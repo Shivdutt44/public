@@ -4,13 +4,17 @@
   "description": "Shivdutt Bio Website",
   "main": "public/index.html",
   "scripts": {
-    "dev": "live-server public --port=3000",
-    "start": "live-server public --port=3000",
+    "dev": "node server.js",
+    "start": "node server.js",
+    "serve": "live-server public --port=3000",
     "deploy": "firebase deploy"
   },
   "author": "Shivdutt Chauhan",
   "license": "ISC",
   "dependencies": {
+    "@prisma/client": "^7.10.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "firebase": "^12.13.0"
   },
   "devDependencies": {

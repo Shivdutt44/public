@@ -1,0 +1,73 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Store {
+  id                 Int      @id @default(autoincrement())
+  name               String
+  domain             String   @unique
+  shopId             String?
+  storeType          String   @default("Collaborations")
+  category           String?
+  status             String   @default("Active")
+  accessType         String   @default("Collaborations")
+  collaboratorStatus String   @default("Approved")
+  permissions        String?
+  productsCount      Int      @default(0)
+  speed              String?  @default("95/100")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  products           Product[]
+}
+
+model Product {
+  id             String   @id
+  storeDomain    String
+  storeName      String
+  title          String
+  sku            String?
+  category       String?
+  price          Float
+  compareAtPrice Float?
+  inventory      Int      @default(0)
+  status         String   @default("In Stock")
+  image          String?
+  lastSync       String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  store          Store?   @relation(fields: [storeDomain], references: [domain])
+}
+
+model WebhookEvent {
+  id          Int      @id @default(autoincrement())
+  topic       String
+  shopDomain  String
+  payload     String?
+  message     String?
+  status      String   @default("success")
+  createdAt   DateTime @default(now())
+}
+
+model App {
+  id           String   @id
+  appId        String   @unique
+  name         String
+  handle       String?
+  apiKey       String?
+  category     String?
+  logo         String?
+  appStoreUrl  String?
+  partnerUrl   String?
+  pricing      String?
+  status       String   @default("Active")
+  installs     Int      @default(0)
+  rating       String?  @default("4.9 ★")
+  lastSync     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
