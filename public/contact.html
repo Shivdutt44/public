@@ -165,7 +165,7 @@
       </div>
 
       <div class="section-contact-main container">
-        <form action="https://formspree.io/f/xnqwzoro" method="POST">
+        <form id="contact-form">
           <div class="grid grid-two-col">
             <input
               type="text"
@@ -186,15 +186,59 @@
             <input type="text" name="subject" placeholder="Subject" />
           </div>
           <div>
-            <textarea name="message" id="" placeholder="Message"></textarea>
+            <textarea name="message" id="" placeholder="Message" required></textarea>
           </div>
 
           <div>
             <input type="submit" value="send message" class="btn" />
           </div>
+          <p id="contact-form-status" style="margin-top: 0.75rem;"></p>
         </form>
       </div>
     </section>
+
+    <script>
+      (function () {
+        var CONTACT_API_URL = "http://localhost:5000/api/contact";
+        var form = document.getElementById("contact-form");
+        var status = document.getElementById("contact-form-status");
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var submitBtn = form.querySelector("input[type=submit]");
+          var payload = {
+            name: form.username.value,
+            email: form.email.value,
+            subject: form.subject.value,
+            message: form.message.value,
+          };
+
+          submitBtn.disabled = true;
+          status.textContent = "Sending...";
+
+          fetch(CONTACT_API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error("Request failed");
+              return res.json();
+            })
+            .then(function () {
+              status.textContent = "Message sent — thank you!";
+              form.reset();
+            })
+            .catch(function () {
+              status.textContent =
+                "Sorry, something went wrong. Please try again or email directly.";
+            })
+            .finally(function () {
+              submitBtn.disabled = false;
+            });
+        });
+      })();
+    </script>
 
     <!-- ========================================
           WhatsApp Connect Section
@@ -337,6 +381,7 @@
     ></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
+    <script src="js/site-editor.js"></script>
   </body>
 </html>
 

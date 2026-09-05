@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin Login — Shivdutt Bio</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    form {
+      background: #1e293b;
+      padding: 32px;
+      border-radius: 12px;
+      width: 320px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+    h1 {
+      color: #fff;
+      font-size: 18px;
+      margin: 0 0 20px;
+    }
+    label {
+      display: block;
+      color: #94a3b8;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #6366f1;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover { background: #4f52d8; }
+    #error {
+      color: #f87171;
+      font-size: 13px;
+      margin-bottom: 12px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <form id="login-form">
+    <h1>Site Customizer Login</h1>
+    <div id="error"></div>
+    <label for="username">Username</label>
+    <input type="text" id="username" required autocomplete="username" />
+    <label for="password">Password</label>
+    <input type="password" id="password" required autocomplete="current-password" />
+    <button type="submit">Log in</button>
+  </form>
+
+  <script>
+    var API_BASE = window.SITE_API_BASE || "http://localhost:5000";
+    var form = document.getElementById("login-form");
+    var errorBox = document.getElementById("error");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      errorBox.style.display = "none";
+      fetch(API_BASE + "/api/admin/login", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value,
+        }),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("Invalid credentials");
+          return res.json();
+        })
+        .then(function () {
+          var params = new URLSearchParams(location.search);
+          location.href = params.get("redirect") || "index.html";
+        })
+        .catch(function () {
+          errorBox.textContent = "Invalid username or password.";
+          errorBox.style.display = "block";
+        });
+    });
+  </script>
+</body>
+</html>

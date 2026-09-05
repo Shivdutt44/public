@@ -16,6 +16,8 @@
   --bg: #f8fafc;
   --gradient: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
   --shadpw: 0px 8px 30px 0px rgba(99, 102, 241, 0.15);
+  --font-body: "Work Sans", sans-serif;
+  --font-heading: "Poppins", sans-serif;
 }
 
 /* spacing 
@@ -23,7 +25,7 @@ desktop = 4.8rem */
 
 html {
   font-size: 62.5%;
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--font-body);
   scroll-behavior: smooth;
 }
 
@@ -35,8 +37,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Rufina", serif;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 h1 {
@@ -154,7 +155,7 @@ Header Section Start
   text-transform: uppercase;
   color: var(--heading);
   transition: all 0.3s;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 .navbar-link:hover,
@@ -794,7 +795,7 @@ textarea {
   border-radius: 5px;
   width: 100%;
   font-size: 1.6rem;
-  font-family: "work sans";
+  font-family: var(--font-body);
   transition: all 0.3s ease;
   background-color: var(--third);
 }
@@ -812,7 +813,7 @@ textarea {
 
 /* ::placeholder {
   font-size: 1.6rem;
-  font-family: "work sans";
+  font-family: var(--font-body);
 } */
 
 .section-contact-main input[type="submit"] {
@@ -2008,7 +2009,7 @@ Tech Stack Section
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--heading);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 /* ===========================================
@@ -2107,7 +2108,7 @@ Project Cards Section
   background: var(--para-tint);
   padding: 0.3rem 1rem;
   border-radius: 10rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 /* Past Projects / Faded Card */
@@ -2131,7 +2132,7 @@ Project Cards Section
   padding: 0.4rem 1.2rem;
   border-radius: 10rem;
   margin-bottom: 1.2rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 .project-status-launched {
@@ -2431,7 +2432,7 @@ Website Development Cards Section
   background: var(--helper-tint);
   padding: 0.5rem 1.2rem;
   border-radius: 10rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
   letter-spacing: 0.3px;
 }
 
@@ -2533,7 +2534,7 @@ Partner Badges & Trust Section
   font-weight: 700;
   color: var(--heading);
   margin-bottom: 0.4rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 .partner-badge p {
@@ -2572,7 +2573,7 @@ Partner Badges & Trust Section
   font-weight: 700;
   color: var(--third);
   margin-bottom: 0.6rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 .partner-metrics p {
@@ -3003,7 +3004,7 @@ WhatsApp Connect Section — Professional Integration
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 2rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 .whatsapp-badge ion-icon {
@@ -3361,7 +3362,7 @@ Floating WhatsApp Button (All Pages)
   border-radius: 8px;
   font-size: 1.3rem;
   font-weight: 500;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
   white-space: nowrap;
   opacity: 0;
   transform: translateX(10px);
@@ -3470,7 +3471,7 @@ Floating WhatsApp Button (All Pages)
   color: #fff;
   font-size: 1.6rem;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 /* Thematic Tracks Grid */
@@ -3508,7 +3509,7 @@ Floating WhatsApp Button (All Pages)
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--heading);
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 /* Countries Grid */
@@ -3531,7 +3532,7 @@ Floating WhatsApp Button (All Pages)
   color: var(--heading);
   text-align: center;
   transition: all 0.3s ease;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-heading);
 }
 
 .bts-countries-grid span:hover {

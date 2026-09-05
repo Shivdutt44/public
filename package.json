@@ -1,0 +1,19 @@
+{
+  "name": "shivdutt-bio",
+  "version": "1.0.0",
+  "description": "Shivdutt Bio Website",
+  "main": "public/index.html",
+  "scripts": {
+    "dev": "live-server public --port=3000",
+    "start": "live-server public --port=3000",
+    "deploy": "firebase deploy"
+  },
+  "author": "Shivdutt Chauhan",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^12.13.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
