@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 require("dotenv").config();
-const { prisma, dbFilePath } = require("./lib/prisma-db");
+const { prisma, dbFilePath, PROJECT_CATEGORIES } = require("./lib/prisma-db");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -223,6 +223,18 @@ app.get("/api/shopify/events", (req, res) => {
 
 const { resolveStoreIdentity } = require("./lib/brand-logo-resolver");
 
+// 1a2. Portfolio Projects (From Prisma DB) — powers the Recent Work filter on the homepage
+app.get("/api/projects", async (req, res) => {
+  try {
+    const projects = await prisma.project.findMany(
+      req.query.category ? { where: { category: req.query.category } } : {}
+    );
+    res.json({ success: true, total: projects.length, categories: PROJECT_CATEGORIES, projects });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
 // 1b. Get All Connected Stores (From Prisma DB)
 app.get("/api/shopify/stores", async (req, res) => {
   try {
@@ -290,14 +302,16 @@ app.post("/api/shopify/stores", async (req, res) => {
   const cleanDomain = domain.includes(".myshopify.com") ? domain : `${domain}.myshopify.com`;
   const type = storeType || "Client transfer";
 
-  // Automatically and dynamically resolve real brand logo and favicon
+  // Automatically resolve the store's real media (square icon, brand logo,
+  // social preview) so a newly connected store never shows a placeholder.
   const identity = await resolveStoreIdentity(cleanDomain, name);
   const storeLogo = req.body.logo || identity.logo;
   const storeUrl = identity.finalUrl || `https://${cleanDomain}`;
+  const media = { logo: storeLogo, url: storeUrl, icon: identity.icon, preview: identity.preview };
 
   const newStore = await prisma.store.upsert({
     where: { domain: cleanDomain },
-    update: { name, category: category || "General Ecommerce", logo: storeLogo, url: storeUrl },
+    update: { name, category: category || "General Ecommerce", ...media },
     create: {
       name,
       domain: cleanDomain,
@@ -309,8 +323,7 @@ app.post("/api/shopify/stores", async (req, res) => {
       speed: "95/100",
       permissions: type === "Client transfer" ? "Development Store Transferred" : "Staff Access Approved",
       collaboratorStatus: "Approved",
-      url: storeUrl,
-      logo: storeLogo
+      ...media
     }
   });
 

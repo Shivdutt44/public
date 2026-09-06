@@ -163,6 +163,13 @@ Header Section Start
   color: var(--helper);
 }
 
+.navbar-link.active,
+.navbar-link.active:link,
+.navbar-link.active:visited {
+  color: var(--helper) !important;
+  font-weight: 700 !important;
+}
+
 .mobile-navbar-btn {
   /* by default for normal screen we want to hide  */
   display: none;
@@ -388,6 +395,23 @@ h3 {
   font-size: 1.6rem;
   text-transform: capitalize;
   border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.72;
+  transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.p-btn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.p-btn-active {
+  opacity: 1;
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.45);
+}
+
+.portfolio-image-not-active {
+  display: none;
 }
 
 .portfolio-images {

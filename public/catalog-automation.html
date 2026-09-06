@@ -591,11 +591,15 @@
         <li><a class="navbar-link" href="/service.html">Services</a></li>
         <li><a class="navbar-link" href="/projects.html">Projects</a></li>
         <li><a class="navbar-link" href="/websites.html">Websites</a></li>
-        <li><a class="navbar-link active" href="/catalog-automation.html" style="color: #6366f1; font-weight: 700;">Catalog Automation</a></li>
+        <li><a class="navbar-link active" href="/catalog-automation.html">Catalog Automation</a></li>
         <li><a class="navbar-link" href="/bengaluru.html">BTS 2026</a></li>
         <li><a class="navbar-link" href="/contact.html">Contact</a></li>
       </ul>
     </nav>
+    <div class="mobile-navbar-btn">
+      <ion-icon class="mobile-nav-icon" name="menu-outline"></ion-icon>
+      <ion-icon class="mobile-nav-icon" name="close-outline"></ion-icon>
+    </div>
   </header>
 
   <!-- ========================================
@@ -2585,6 +2589,15 @@
       });
     }
 
+    // Responsive Navigation Toggle
+    const mobileNav = document.querySelector(".mobile-navbar-btn");
+    const navHeader = document.querySelector(".header");
+    if (mobileNav && navHeader) {
+      mobileNav.addEventListener("click", () => {
+        navHeader.classList.toggle("active");
+      });
+    }
+
     // Initial Load & Real-Time Setup
     loadStatus();
     loadApps();
@@ -2592,5 +2605,7 @@
     loadLogs();
     setupRealtimeSSE();
   </script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

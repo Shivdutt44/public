@@ -139,16 +139,14 @@
       /></a>
       <nav class="navbar">
         <ul class="navbar-lists">
-          <li><a class="navbar-link home-link" href="/index.html">Home</a></li>
-          <li><a class="navbar-link about-link" href="/about.html">About</a></li>
-          <li><a class="navbar-link service-link" href="/service.html">Services</a></li>
-          <li><a class="navbar-link portfolio-link" href="#portfolio-section">Portfolio</a></li>
+          <li><a class="navbar-link active" href="/index.html">Home</a></li>
+          <li><a class="navbar-link" href="/about.html">About</a></li>
+          <li><a class="navbar-link" href="/service.html">Services</a></li>
           <li><a class="navbar-link" href="/projects.html">Projects</a></li>
           <li><a class="navbar-link" href="/websites.html">Websites</a></li>
           <li><a class="navbar-link" href="/catalog-automation.html">Catalog Automation</a></li>
           <li><a class="navbar-link" href="/bengaluru.html">BTS 2026</a></li>
-          <li><a class="navbar-link" href="/contact.html">Contact</a>
-          </li>
+          <li><a class="navbar-link" href="/contact.html">Contact</a></li>
         </ul>
       </nav>
 
@@ -306,89 +304,110 @@
         </p>
       </div>
 
-      <div class="p-btns">
+      <div class="p-btns" id="portfolio-filters">
+        <button class="btn p-btn p-btn-active" data-btn-num="0">All Work</button>
         <button class="btn p-btn" data-btn-num="1">Shopify Apps</button>
         <button class="btn p-btn" data-btn-num="2">Shopify Development</button>
         <button class="btn p-btn" data-btn-num="3">AI Projects</button>
         <button class="btn p-btn" data-btn-num="4">MERN Stack</button>
       </div>
 
-      <div class="container grid grid-three-col portfolio-images">
-        <div class="img-ovelay p-btn--1" >
-          <img src="images/wishlist-expert/screenshot1.png" loading="lazy" alt="Ecom Wishlist Expert"  />
+      <div class="container grid grid-three-col portfolio-images" id="portfolio-grid">
+        <div class="img-ovelay" data-categories="1,3">
+          <img src="images/apps/ecom-review-expert/screenshot1.png" loading="lazy" alt="Ecom: AI Product Review Expert" />
           <div class="overlay">
-            <a href="/projects.html" class="common-heading">Ecom Wishlist Expert</a>
+            <a href="https://apps.shopify.com/ecom-review-expert" target="_blank" rel="noopener noreferrer" class="common-heading">Ecom: AI Product Review Expert</a>
           </div>
         </div>
 
-        <div class="img-ovelay p-btn--1 p-btn--2" >
-          <img src="images/page-speed-expert/screenshot1.png" loading="lazy" alt="Ecom Page Speed Expert"  />
+        <div class="img-ovelay" data-categories="1">
+          <img src="images/apps/wishlist-expert/screenshot1.png" loading="lazy" alt="Ecom Wishlist Expert" />
           <div class="overlay">
-            <a href="/projects.html" class="common-heading">Ecom Page Speed Expert</a>
+            <a href="https://apps.shopify.com/wishlist-expert" target="_blank" rel="noopener noreferrer" class="common-heading">Ecom Wishlist Expert</a>
           </div>
         </div>
 
-        <div class="img-ovelay p-btn--1" >
-          <img src="images/verified-seller/screenshot1.png" loading="lazy" alt="Ecom Verified Seller"  />
+        <div class="img-ovelay" data-categories="1">
+          <img src="images/apps/ecom-verified-seller/screenshot1.png" loading="lazy" alt="Ecom : Verified Seller Badges" />
           <div class="overlay">
-            <a href="/projects.html" class="common-heading">Ecom Verified Seller</a>
+            <a href="https://apps.shopify.com/ecom-verified-seller" target="_blank" rel="noopener noreferrer" class="common-heading">Ecom : Verified Seller Badges</a>
           </div>
         </div>
 
-        <div class="img-ovelay p-btn--1 p-btn--3" >
-          <img src="images/review-expert/screenshot1.png" loading="lazy" alt="Ecom AI Reviews Expert"  />
+        <div class="img-ovelay" data-categories="1,2">
+          <img src="images/apps/ecom-page-speed-expert/screenshot1.png" loading="lazy" alt="Ecom : Page Speed Expert" />
           <div class="overlay">
-            <a href="/projects.html" class="common-heading">Ecom AI Reviews Expert</a>
+            <a href="https://apps.shopify.com/ecom-page-speed-expert" target="_blank" rel="noopener noreferrer" class="common-heading">Ecom : Page Speed Expert</a>
           </div>
         </div>
 
-        <div class="img-ovelay p-btn--1 p-btn--4">
-          <img src="images/folio/2.jpg" loading="lazy" alt="InstFeed Shopify App" />
+        <div class="img-ovelay" data-categories="1,3">
+          <img src="images/apps/ai-instafeed/screenshot1.png" loading="lazy" alt="Ecom : AI Instafeed Expert" />
           <div class="overlay">
-             <a href="/projects.html" class="common-heading">InstFeed - Instagram App</a>
+            <a href="https://apps.shopify.com/ai-instafeed" target="_blank" rel="noopener noreferrer" class="common-heading">Ecom : AI Instafeed Expert</a>
           </div>
         </div>
 
-        <div class="img-ovelay p-btn--3">
-          <img src="images/folio/3.jpg" loading="lazy" alt="AI Chatbot System"  />
+        <div class="img-ovelay" data-categories="1,3">
+          <img src="images/apps/staragent-ai-chatbot-sales/screenshot1.png" loading="lazy" alt="StarAgent : AI Sales &amp; Chatbot" />
           <div class="overlay">
-             <a href="/projects.html" class="common-heading">AI Chatbot for Shopify</a>
+            <a href="https://apps.shopify.com/staragent-ai-chatbot-sales" target="_blank" rel="noopener noreferrer" class="common-heading">StarAgent : AI Sales &amp; Chatbot</a>
           </div>
         </div>
-        <div class="img-ovelay p-btn--2">
-          <img src="images/folio/4.jpg" loading="lazy" alt="Custom Shopify Theme"  />
+
+        <div class="img-ovelay" data-categories="2">
+          <img src="images/case-studies/floor-land.png" loading="lazy" alt="Floor Land — Shopify Storefront" />
           <div class="overlay">
-             <a href="/projects.html" class="common-heading">Custom Shopify Theme</a>
+            <a href="https://www.floor-land.co.uk/" target="_blank" rel="noopener noreferrer" class="common-heading">Floor Land — Shopify Storefront</a>
           </div>
         </div>
-        <div class="img-ovelay p-btn--4">
-          <img src="images/folio/5.jpg" loading="lazy" alt="MERN Stack eCommerce"  />
+
+        <div class="img-ovelay" data-categories="2">
+          <img src="https://sea-shield.com/cdn/shop/files/Copy_of_BOOST_STAR_Logo_1.png?v=1731300398&amp;width=1200" loading="lazy" alt="SEA-SHIELD Polishes and Coatings — Shopify Storefront" />
           <div class="overlay">
-             <a href="/projects.html" class="common-heading">MERN Stack eCommerce</a>
+            <a href="https://sea-shield.com/" target="_blank" rel="noopener noreferrer" class="common-heading">SEA-SHIELD Polishes and Coatings — Shopify Storefront</a>
           </div>
         </div>
-        <div class="img-ovelay p-btn--3">
-          <img src="images/folio/6.jpg" loading="lazy" alt="Agentic AI Automation"  />
+
+        <div class="img-ovelay" data-categories="2">
+          <img src="https://divyasnaturals.com/cdn/shop/files/Divya_s_Naturals.png?v=1767068659&amp;width=1200" loading="lazy" alt="Divya's Naturals — Shopify Storefront" />
           <div class="overlay">
-             <a href="/projects.html" class="common-heading">Agentic AI Automation</a>
+            <a href="https://divyasnaturals.com/" target="_blank" rel="noopener noreferrer" class="common-heading">Divya's Naturals — Shopify Storefront</a>
           </div>
         </div>
-        <div class="img-ovelay p-btn--2">
-          <img src="images/case-studies/floor-land.png" loading="lazy" alt="Floor Land - Shopify Store Development" />
+
+        <div class="img-ovelay" data-categories="2">
+          <img src="https://everydayhale.com/cdn/shop/files/Everyday_Hale_Transparent_Logo.png?v=1785739763&amp;width=600" loading="lazy" alt="Everyday Hale — Shopify Storefront" />
           <div class="overlay">
-             <a href="/catalog-automation.html" class="common-heading">Floor Land - Shopify Storefront</a>
+            <a href="https://everydayhale.com/" target="_blank" rel="noopener noreferrer" class="common-heading">Everyday Hale — Shopify Storefront</a>
           </div>
         </div>
-        <div class="img-ovelay p-btn--2">
-          <img src="images/folio/7.jpg" loading="lazy" alt="Amzo Custom Shopify Theme" />
+
+        <div class="img-ovelay" data-categories="2">
+          <img src="https://peto-piaplanet.myshopify.com/cdn/shop/files/Asset_1-8_95ec2517-caa2-4695-9db5-5cc99403d3eb.png?v=1760090713&amp;width=1200" loading="lazy" alt="TRU BASKET — Shopify Storefront" />
           <div class="overlay">
-             <a href="/projects.html" class="common-heading">Amzo Custom Shopify Theme</a>
+            <a href="https://peto-piaplanet.myshopify.com" target="_blank" rel="noopener noreferrer" class="common-heading">TRU BASKET — Shopify Storefront</a>
           </div>
         </div>
-        <div class="img-ovelay p-btn--2">
-          <img src="images/case-studies/cycle.png" loading="lazy" alt="Cycle Pure Agarbathies Shopify Store" />
+
+        <div class="img-ovelay" data-categories="2">
+          <img src="https://motherearthproducts.com/cdn/shop/files/DSC00790_1200.png?v=1587411433&amp;width=1200" loading="lazy" alt="Mother Earth Products — Shopify Storefront" />
           <div class="overlay">
-             <a href="/catalog-automation.html" class="common-heading">Cycle Pure — Shopify Storefront</a>
+            <a href="https://motherearthproducts.com/" target="_blank" rel="noopener noreferrer" class="common-heading">Mother Earth Products — Shopify Storefront</a>
+          </div>
+        </div>
+
+        <div class="img-ovelay" data-categories="4,2">
+          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20640%20360%22%20width%3D%22640%22%20height%3D%22360%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230f766e%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2314b8a6%22%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D%22640%22%20height%3D%22360%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22320%22%20y%3D%22188%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20sans-serif%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%3ECatalog%20Automation%20Dashboard%3C%2Ftext%3E%0A%20%20%20%20%3C%2Fsvg%3E" loading="lazy" alt="Catalog Automation Dashboard" />
+          <div class="overlay">
+            <a href="/catalog-automation.html" class="common-heading">Catalog Automation Dashboard</a>
+          </div>
+        </div>
+
+        <div class="img-ovelay" data-categories="4">
+          <img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20640%20360%22%20width%3D%22640%22%20height%3D%22360%22%3E%0A%20%20%20%20%20%20%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234f46e5%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%237c3aed%22%2F%3E%0A%20%20%20%20%20%20%3C%2FlinearGradient%3E%3C%2Fdefs%3E%0A%20%20%20%20%20%20%3Crect%20width%3D%22640%22%20height%3D%22360%22%20fill%3D%22url(%23g)%22%2F%3E%0A%20%20%20%20%20%20%3Ctext%20x%3D%22320%22%20y%3D%22188%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20sans-serif%22%20font-size%3D%2234%22%20font-weight%3D%22700%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%3EMERN%20Stack%20eCommerce%3C%2Ftext%3E%0A%20%20%20%20%3C%2Fsvg%3E" loading="lazy" alt="MERN Stack eCommerce" />
+          <div class="overlay">
+            <a href="/projects.html" class="common-heading">MERN Stack eCommerce</a>
           </div>
         </div>
       </div>

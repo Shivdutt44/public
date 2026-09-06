@@ -237,41 +237,97 @@ if (portfolioLinkEl && portfolioSection) {
 // ========================================
 
 const port_btn = document.querySelector(".p-btns");
-const p_btn = document.querySelectorAll(".p-btn");
-const img_div = document.querySelectorAll(".img-ovelay");
+const portfolio_grid = document.getElementById("portfolio-grid");
 
-if (port_btn) port_btn.addEventListener("click", (e) => {
-    // console.log(e.target);
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+}
 
-    // we will get which child element was clicked
-    const p_btn_clicked = e.target;
-    console.log(p_btn_clicked);
+function applyPortfolioFilter(btnNum) {
+    if (!portfolio_grid) return;
+    const num = String(btnNum);
+    portfolio_grid.querySelectorAll(".img-ovelay").forEach((card) => {
+        const cats = (card.dataset.categories || "").split(",");
+        const show = num === "0" || cats.includes(num);
+        card.classList.toggle("portfolio-image-not-active", !show);
+    });
+}
 
-    if (!p_btn_clicked.classList.contains("p-btn")) return;
-    // always remove the classList first then add the class
-    p_btn.forEach((curElem) => curElem.classList.remove("p-btn-active"));
-    // img_div.forEach((curElem) =>
-    //   curElem.classList.remove("portfolio-image-active")
-    // );
+// Projects without a public listing to pull media from get a generated cover
+// rather than a stock photo of somebody else's work.
+function projectCover(title) {
+    const palettes = [
+        ["#4f46e5", "#7c3aed"],
+        ["#2563eb", "#06b6d4"],
+        ["#0f766e", "#14b8a6"],
+        ["#d97706", "#f59e0b"],
+    ];
+    let hash = 0;
+    for (let i = 0; i < title.length; i++) hash = title.charCodeAt(i) + ((hash << 5) - hash);
+    const [c1, c2] = palettes[Math.abs(hash) % palettes.length];
+    const label = title.length > 28 ? title.slice(0, 27) + "…" : title;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+      <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="${c1}"/><stop offset="100%" stop-color="${c2}"/>
+      </linearGradient></defs>
+      <rect width="640" height="360" fill="url(#g)"/>
+      <text x="320" y="188" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle">${label.replace(/&/g, "&amp;").replace(/</g, "&lt;")}</text>
+    </svg>`;
+    return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+}
 
-    p_btn_clicked.classList.add("p-btn-active");
+function renderPortfolio(projects) {
+    if (!portfolio_grid) return;
+    portfolio_grid.innerHTML = projects
+        .map((p) => {
+            const ext = p.external ? ' target="_blank" rel="noopener noreferrer"' : "";
+            const cover = projectCover(p.title);
+            const src = p.image ? escapeHtml(p.image) : cover;
+            return `<div class="img-ovelay" data-categories="${p.categories.join(",")}">
+          <img src="${src}" loading="lazy" alt="${escapeHtml(p.title)}" onerror="this.onerror=null;this.src='${cover}';" />
+          <div class="overlay">
+            <a href="${escapeHtml(p.link)}"${ext} class="common-heading">${escapeHtml(p.title)}</a>
+          </div>
+        </div>`;
+        })
+        .join("");
 
-    // to find the p-img class number of the images using the btn data attribute number
+    const active = document.querySelector(".p-btn.p-btn-active");
+    applyPortfolioFilter(active ? active.dataset.btnNum : "0");
+}
 
-    const btn_num = p_btn_clicked.dataset.btnNum;
-    // console.log(btn_num);
+if (port_btn) {
+    port_btn.addEventListener("click", (e) => {
+        const clicked = e.target.closest(".p-btn");
+        if (!clicked) return;
 
-    const img_active = document.querySelectorAll(`.p-btn--${btn_num}`);
-    // console.log(img_active);
+        document
+            .querySelectorAll(".p-btn")
+            .forEach((btn) => btn.classList.remove("p-btn-active"));
+        clicked.classList.add("p-btn-active");
 
-    img_div.forEach((curElem) =>
-        curElem.classList.add("portfolio-image-not-active")
-    );
+        applyPortfolioFilter(clicked.dataset.btnNum);
+    });
+}
 
-    img_active.forEach((curElem) =>
-        curElem.classList.remove(`portfolio-image-not-active`)
-    );
-});
+// Projects live in the database; the markup shipped in the HTML is only a
+// fallback for when the API is unreachable.
+if (portfolio_grid) {
+    fetch("/api/projects")
+        .then((res) => (res.ok ? res.json() : Promise.reject(new Error(res.status))))
+        .then((data) => {
+            if (data && Array.isArray(data.projects) && data.projects.length) {
+                renderPortfolio(data.projects);
+            }
+        })
+        .catch(() => {
+            /* keep the server-rendered fallback grid */
+        });
+}
 
 // ========================================
 //  lazy loading section
