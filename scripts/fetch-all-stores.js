@@ -123,7 +123,9 @@ async function fetchAllBothData() {
               permissions: storeType === "Client transfer" ? "Development Store Transferred" : "Staff Access Approved",
               products: Math.floor(Math.random() * 50) + 15,
               speed: (Math.floor(Math.random() * 8) + 92) + "/100",
-              lastSync: new Date(node.createdAt || Date.now()).toLocaleDateString()
+              lastSync: new Date(node.createdAt || Date.now()).toLocaleDateString(),
+              url: `https://${domain}`,
+              logo: `https://www.google.com/s2/favicons?domain=${domain}&sz=128`
             });
           } else {
             // If already present as Collaborations, but also has referral/client transfer, note it

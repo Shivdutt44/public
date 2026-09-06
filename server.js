@@ -221,6 +221,8 @@ app.get("/api/shopify/events", (req, res) => {
   });
 });
 
+const { resolveStoreIdentity } = require("./lib/brand-logo-resolver");
+
 // 1b. Get All Connected Stores (From Prisma DB)
 app.get("/api/shopify/stores", async (req, res) => {
   try {
@@ -240,7 +242,45 @@ app.get("/api/shopify/stores", async (req, res) => {
   }
 });
 
-// 1c. Add New Store (Persisted to Prisma DB)
+// 1b2. Dynamic Original Logo & Favicon Resolver Endpoint
+app.get("/api/shopify/store-logo", async (req, res) => {
+  const { domain, name } = req.query;
+  if (!domain) {
+    return res.status(400).json({ success: false, message: "domain query parameter is required" });
+  }
+  try {
+    const identity = await resolveStoreIdentity(domain, name);
+    res.json({ success: true, ...identity });
+  } catch (err) {
+    res.status(500).json({ success: false, message: err.message });
+  }
+});
+
+// 1b3. Direct Image Proxy Endpoint (Automated Dynamic Image URL)
+app.get("/api/shopify/store-logo/image", async (req, res) => {
+  const { domain, name } = req.query;
+  if (!domain) return res.status(400).send("Domain required");
+  try {
+    const identity = await resolveStoreIdentity(domain, name);
+    if (identity.logo && identity.logo.startsWith("data:image/svg+xml")) {
+      const decodedSvg = decodeURIComponent(identity.logo.replace("data:image/svg+xml;utf8,", ""));
+      res.setHeader("Content-Type", "image/svg+xml");
+      res.setHeader("Cache-Control", "public, max-age=86400");
+      return res.send(decodedSvg);
+    }
+    if (identity.logo && identity.logo.startsWith("http")) {
+      return res.redirect(302, identity.logo);
+    }
+    if (identity.logo) {
+      return res.redirect(302, "/" + identity.logo.replace(/^\//, ""));
+    }
+    res.redirect(302, "/images/case-studies/floor-land.png");
+  } catch(e) {
+    res.redirect(302, "/images/case-studies/floor-land.png");
+  }
+});
+
+// 1c. Add New Store (Persisted to Prisma DB with Automated Brand Logo Resolution)
 app.post("/api/shopify/stores", async (req, res) => {
   const { name, domain, category, storeType } = req.body;
   if (!name || !domain) {
@@ -250,9 +290,14 @@ app.post("/api/shopify/stores", async (req, res) => {
   const cleanDomain = domain.includes(".myshopify.com") ? domain : `${domain}.myshopify.com`;
   const type = storeType || "Client transfer";
 
+  // Automatically and dynamically resolve real brand logo and favicon
+  const identity = await resolveStoreIdentity(cleanDomain, name);
+  const storeLogo = req.body.logo || identity.logo;
+  const storeUrl = identity.finalUrl || `https://${cleanDomain}`;
+
   const newStore = await prisma.store.upsert({
     where: { domain: cleanDomain },
-    update: { name, category: category || "General Ecommerce" },
+    update: { name, category: category || "General Ecommerce", logo: storeLogo, url: storeUrl },
     create: {
       name,
       domain: cleanDomain,
@@ -263,7 +308,9 @@ app.post("/api/shopify/stores", async (req, res) => {
       products: Math.floor(Math.random() * 40) + 10,
       speed: "95/100",
       permissions: type === "Client transfer" ? "Development Store Transferred" : "Staff Access Approved",
-      collaboratorStatus: "Approved"
+      collaboratorStatus: "Approved",
+      url: storeUrl,
+      logo: storeLogo
     }
   });
 

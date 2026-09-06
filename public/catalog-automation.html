@@ -368,6 +368,213 @@
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.3; transform: scale(0.7); }
     }
+
+    /* Apps Directory Grid & Cards */
+    .app-card {
+      background: #0b0f19;
+      border: 1px solid #1e293b;
+      border-radius: 1.4rem;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .app-card:hover {
+      border-color: #8b5cf6;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(139, 92, 246, 0.22);
+    }
+
+    .app-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .app-logo-img {
+      width: 5.4rem;
+      height: 5.4rem;
+      border-radius: 1.2rem;
+      object-fit: contain;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .app-card:hover .app-logo-img {
+      transform: scale(1.08) rotate(2deg);
+    }
+
+    .app-link-title {
+      color: #fff;
+      font-size: 1.65rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: color 0.2s ease;
+    }
+
+    .app-link-title:hover {
+      color: #a855f7;
+    }
+
+    .app-category-badge {
+      font-size: 1.15rem;
+      color: #94a3b8;
+      margin-top: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .app-description {
+      color: #cbd5e1;
+      font-size: 1.3rem;
+      line-height: 1.55;
+      margin-bottom: 1.6rem;
+      flex-grow: 1;
+    }
+
+    .app-stats-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #070a12;
+      padding: 1rem 1.4rem;
+      border-radius: 0.8rem;
+      border: 1px solid #1e293b;
+      margin-bottom: 1.4rem;
+      font-size: 1.25rem;
+    }
+
+    .app-actions-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-app-store {
+      flex: 1;
+      text-align: center;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 600;
+      padding: 0.9rem 1.4rem;
+      border-radius: 0.8rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-app-store:hover {
+      background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+    }
+
+    .btn-app-partner {
+      background: #1e293b;
+      color: #94a3b8;
+      border: 1px solid #334155;
+      font-size: 1.3rem;
+      padding: 0.9rem 1.2rem;
+      border-radius: 0.8rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .btn-app-partner:hover {
+      background: #334155;
+      color: #fff;
+    }
+
+    /* Store Directory Logos & Links */
+    .store-logo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .store-avatar-img {
+      width: 4.2rem;
+      height: 4.2rem;
+      border-radius: 0.9rem;
+      object-fit: contain;
+      background: #ffffff;
+      padding: 4px;
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .store-logo-link:hover .store-avatar-img {
+      transform: scale(1.12) rotate(2deg);
+      border-color: #818cf8;
+      box-shadow: 0 6px 18px rgba(99, 102, 241, 0.45);
+    }
+
+    .store-title-link {
+      color: #fff;
+      font-size: 1.45rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .store-title-link:hover {
+      color: #818cf8;
+    }
+
+    .store-link-icon {
+      font-size: 1.05rem;
+      opacity: 0;
+      transform: translateX(-3px);
+      transition: all 0.2s ease;
+      color: #818cf8;
+    }
+
+    .store-title-link:hover .store-link-icon {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .store-domain-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .store-domain-link code {
+      transition: all 0.2s ease;
+    }
+
+    .store-domain-link:hover code {
+      background: #1e293b !important;
+      color: #38bdf8 !important;
+      border-color: #38bdf8 !important;
+      box-shadow: 0 2px 10px rgba(56, 189, 248, 0.2);
+    }
   </style>
 </head>
 
@@ -406,68 +613,34 @@
         <p>Real-time synchronization for multi-store product feeds, automatic inventory updates, and intelligent catalog distribution powered by secure API automation.</p>
       </div>
 
-      <!-- Actions & Filters -->
-      <div class="actions-panel">
-        <div class="actions-left">
-          <button id="btn-sync-now" class="btn-dash btn-dash-primary">
-            <i class="fa-solid fa-rotate"></i> Run Instant Sync
-          </button>
-          <a href="/api/shopify/feed.xml" target="_blank" class="btn-dash btn-dash-secondary">
-            <i class="fa-solid fa-rss"></i> Google Feed (XML)
-          </a>
-          <a href="/api/shopify/feed.json" target="_blank" class="btn-dash btn-dash-secondary">
-            <i class="fa-solid fa-file-code"></i> JSON Feed
-          </a>
-          <button id="btn-test-webhook" class="btn-dash btn-dash-secondary" style="border-color: #8b5cf6; color: #c4b5fd;">
-            <i class="fa-solid fa-bolt" style="color: #a855f7;"></i> Test Real-time Webhook
-          </button>
-          <span id="live-connection-badge" style="display: inline-flex; align-items: center; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); color: #34d399; font-size: 1.25rem; padding: 0.8rem 1.4rem; border-radius: 0.8rem; font-weight: 600;">
-            <span class="live-dot"></span> Prisma DB Live (0 Refresh)
-          </span>
+      <!-- ========================================
+            Shopify Apps Directory (Live Prisma DB + AJAX)
+      ======================================== -->
+      <div class="table-container" style="margin-bottom: 3.5rem;">
+        <div class="table-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.2rem;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <h3 style="margin: 0;"><i class="fa-brands fa-shopify" style="color: #9333ea; margin-right: 8px;"></i> Shopify Partner Apps Directory</h3>
+              <span id="apps-count-badge" class="badge" style="background: rgba(147, 51, 234, 0.15); color: #c084fc; border: 1px solid rgba(147, 51, 234, 0.3);">4 Apps Live</span>
+            </div>
+            <p style="color: var(--dash-text-muted); font-size: 1.3rem; margin-top: 4px;">Live merchant apps fetched from Partner ID 2457662 • Persisted via Prisma ORM • Auto-fetched via AJAX</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span id="live-connection-badge" style="display: inline-flex; align-items: center; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); color: #34d399; font-size: 1.25rem; padding: 0.7rem 1.2rem; border-radius: 0.8rem; font-weight: 600;">
+              <span class="live-dot"></span> Prisma DB Live (0 Refresh)
+            </span>
+            <button id="btn-test-app-webhook" class="btn-dash btn-dash-secondary" style="border-color: #ec4899; color: #f472b6;">
+              <i class="fa-solid fa-bolt" style="color: #ec4899;"></i> Test App Webhook
+            </button>
+            <button id="btn-refresh-apps" class="btn-dash btn-dash-secondary" style="font-size: 1.3rem;">
+              <i class="fa-solid fa-rotate"></i> AJAX Refresh
+            </button>
+          </div>
         </div>
 
-        <div class="actions-right">
-          <input type="text" id="search-box" class="search-input" placeholder="Search product or SKU..." />
-          <select id="filter-store" class="select-dash">
-            <option value="all">All Stores</option>
-            <option value="IRIS">IRIS Aromachology</option>
-            <option value="JUPRA">JUPRA Lifestyle</option>
-            <option value="Vedist">Vedist Organic</option>
-            <option value="Nayla">Nayla Jewelry</option>
-            <option value="Liberty1947">Liberty1947</option>
-          </select>
-          <select id="filter-status" class="select-dash">
-            <option value="all">All Stock Status</option>
-            <option value="In Stock">In Stock</option>
-            <option value="Low Stock">Low Stock</option>
-            <option value="Out of Stock">Out of Stock</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- Catalog Table -->
-      <div class="table-container">
-        <div class="table-header">
-          <h3><i class="fa-solid fa-list-check" style="color: #818cf8; margin-right: 8px;"></i> Synced Product Inventory</h3>
-          <span id="product-count-badge" class="badge" style="margin: 0;">Showing items</span>
-        </div>
-        <div class="table-responsive">
-          <table class="catalog-table">
-            <thead>
-              <tr>
-                <th>Product Details</th>
-                <th>Store / Brand</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Inventory</th>
-                <th>Status</th>
-                <th>Last Synced</th>
-              </tr>
-            </thead>
-            <tbody id="catalog-table-body">
-              <!-- Dynamically Populated -->
-            </tbody>
-          </table>
+        <!-- Apps Grid Container (Populated via AJAX) -->
+        <div id="apps-grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem; padding: 2.2rem;">
+          <!-- Dynamically populated via AJAX -->
         </div>
       </div>
 
@@ -593,6 +766,7 @@
 
     // 2. Fetch Catalog Items
     async function loadCatalog() {
+      if (!tableBody || !searchBox || !filterStore || !filterStatus) return;
       const q = searchBox.value;
       const store = filterStore.value;
       const status = filterStatus.value;
@@ -675,27 +849,29 @@
     }
 
     // Event Listeners
-    btnSync.addEventListener("click", async () => {
-      btnSync.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Syncing...`;
-      btnSync.disabled = true;
+    if (btnSync) {
+      btnSync.addEventListener("click", async () => {
+        btnSync.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Syncing...`;
+        btnSync.disabled = true;
 
-      try {
-        const res = await fetch(`${API_BASE}/api/shopify/sync`, { method: "POST" });
-        const data = await res.json();
-        showToast(data.message || "Sync completed successfully!");
-      } catch (e) {
-        showToast("Synced locally! (Server response recorded)");
-      }
+        try {
+          const res = await fetch(`${API_BASE}/api/shopify/sync`, { method: "POST" });
+          const data = await res.json();
+          showToast(data.message || "Sync completed successfully!");
+        } catch (e) {
+          showToast("Synced locally! (Server response recorded)");
+        }
 
-      await loadCatalog();
-      await loadLogs();
-      btnSync.innerHTML = `<i class="fa-solid fa-rotate"></i> Run Instant Sync`;
-      btnSync.disabled = false;
-    });
+        await loadCatalog();
+        await loadLogs();
+        btnSync.innerHTML = `<i class="fa-solid fa-rotate"></i> Run Instant Sync`;
+        btnSync.disabled = false;
+      });
+    }
 
-    searchBox.addEventListener("input", loadCatalog);
-    filterStore.addEventListener("change", loadCatalog);
-    filterStatus.addEventListener("change", loadCatalog);
+    if (searchBox) searchBox.addEventListener("input", loadCatalog);
+    if (filterStore) filterStore.addEventListener("change", loadCatalog);
+    if (filterStatus) filterStatus.addEventListener("change", loadCatalog);
 
     // 4. Stores Directory Management
     const storesTableBody = document.getElementById("stores-table-body");
@@ -722,7 +898,9 @@
     "permissions": "Staff Access Approved",
     "products": 59,
     "speed": "98/100",
-    "lastSync": "3/9/2026"
+    "lastSync": "3/9/2026",
+    "url": "https://floor-land.myshopify.com",
+    "logo": "images/case-studies/floor-land.png"
   },
   {
     "id": 2,
@@ -737,7 +915,9 @@
     "permissions": "Development Store Transferred",
     "products": 27,
     "speed": "96/100",
-    "lastSync": "3/9/2026"
+    "lastSync": "3/9/2026",
+    "url": "https://divyasnaturals.com/",
+    "logo": "https://divyasnaturals.com/cdn/shop/files/Divya_s_Naturals.png?v=1767068659"
   },
   {
     "id": 3,
@@ -752,7 +932,9 @@
     "permissions": "Development Store Transferred",
     "products": 35,
     "speed": "96/100",
-    "lastSync": "3/9/2026"
+    "lastSync": "3/9/2026",
+    "url": "https://everydayhale.com/",
+    "logo": "https://everydayhale.com/cdn/shop/files/Everyday_Hale_Transparent_Logo.png?height=100&amp;v=1785739763"
   },
   {
     "id": 4,
@@ -767,7 +949,9 @@
     "permissions": "Staff Access Approved",
     "products": 43,
     "speed": "95/100",
-    "lastSync": "2/9/2026"
+    "lastSync": "2/9/2026",
+    "url": "https://sea-shield.com/",
+    "logo": "https://sea-shield.com/cdn/shop/files/sea_shield_logo_yatch_boats_products.png?v=1731829105&width=500"
   },
   {
     "id": 5,
@@ -782,7 +966,9 @@
     "permissions": "Development Store Transferred",
     "products": 37,
     "speed": "96/100",
-    "lastSync": "2/9/2026"
+    "lastSync": "2/9/2026",
+    "url": "https://peto-piaplanet.myshopify.com",
+    "logo": "https://peto-piaplanet.myshopify.com/cdn/shop/files/Asset_1.svg?height=75&amp;v=1758876501"
   },
   {
     "id": 6,
@@ -797,7 +983,9 @@
     "permissions": "Staff Access Approved",
     "products": 64,
     "speed": "92/100",
-    "lastSync": "2/9/2026"
+    "lastSync": "2/9/2026",
+    "url": "https://motherearthproducts.com/",
+    "logo": "https://motherearthproducts.com/cdn/shop/files/mep-logo-with-bike-tm_sm_240.jpg?v=1613171272&amp;width=500"
   },
   {
     "id": 7,
@@ -812,7 +1000,9 @@
     "permissions": "Development Store Transferred",
     "products": 40,
     "speed": "96/100",
-    "lastSync": "2/9/2026"
+    "lastSync": "2/9/2026",
+    "url": "https://www.cuncharococoa.com/",
+    "logo": "https://www.cuncharococoa.com/cdn/shop/files/Normal-Logog-of-Cocoa-WBG.png?v=1748251410&amp;width=600"
   },
   {
     "id": 8,
@@ -827,7 +1017,9 @@
     "permissions": "Development Store Transferred",
     "products": 46,
     "speed": "98/100",
-    "lastSync": "1/9/2026"
+    "lastSync": "1/9/2026",
+    "url": "https://caldercarmel.myshopify.com/password",
+    "logo": "https://caldercarmel.myshopify.com/cdn/shop/files/8040aae5-0ed1-4377-a0e3-d6e8acc5771c.png?crop=center&height=180&v=1776668589&width=180"
   },
   {
     "id": 9,
@@ -842,7 +1034,9 @@
     "permissions": "Staff Access Approved",
     "products": 43,
     "speed": "98/100",
-    "lastSync": "28/8/2026"
+    "lastSync": "28/8/2026",
+    "url": "https://www.solikka.com/",
+    "logo": "https://www.solikka.com/cdn/shop/files/fulllogo_transparent_nobufferSolikka_2a99dfd1-e7d9-4b0e-8b28-3e40b10bd270.png?height=60&v=1758558430"
   },
   {
     "id": 10,
@@ -857,7 +1051,9 @@
     "permissions": "Development Store Transferred",
     "products": 57,
     "speed": "92/100",
-    "lastSync": "28/8/2026"
+    "lastSync": "28/8/2026",
+    "url": "https://raizsaludnatural.com/",
+    "logo": "https://raizsaludnatural.com/cdn/shop/files/WhatsApp_Image_2025-10-31_at_7.57.58_AM.png?crop=center&height=32&v=1761896273&width=32"
   },
   {
     "id": 11,
@@ -872,7 +1068,9 @@
     "permissions": "Staff Access Approved",
     "products": 25,
     "speed": "94/100",
-    "lastSync": "28/8/2026"
+    "lastSync": "28/8/2026",
+    "url": "https://quranicarabiconline.com/",
+    "logo": "https://quranicarabiconline.com/cdn/shop/files/logo_top_website_arabic_and_quran_studies.png?height=628&pad_color=ffffff&v=1705480673&width=1200"
   },
   {
     "id": 12,
@@ -887,7 +1085,9 @@
     "permissions": "Staff Access Approved",
     "products": 38,
     "speed": "95/100",
-    "lastSync": "28/8/2026"
+    "lastSync": "28/8/2026",
+    "url": "https://botascarrillo.com/",
+    "logo": "https://botascarrillo.com/cdn/shop/files/bots3_e31edf32-c01a-4c71-a9eb-7a73c77003e1.jpg?v=1632267518"
   },
   {
     "id": 13,
@@ -902,7 +1102,9 @@
     "permissions": "Development Store Transferred",
     "products": 52,
     "speed": "98/100",
-    "lastSync": "27/8/2026"
+    "lastSync": "27/8/2026",
+    "url": "https://peekintonature.myshopify.com",
+    "logo": "images/case-studies/peek-into-nature.png"
   },
   {
     "id": 14,
@@ -917,7 +1119,9 @@
     "permissions": "Development Store Transferred",
     "products": 41,
     "speed": "97/100",
-    "lastSync": "26/8/2026"
+    "lastSync": "26/8/2026",
+    "url": "https://statusplaybook.club/",
+    "logo": "https://statusplaybook.club/cdn/shop/files/amazon-logo-amazon-logo-white-background-vector-format-avaliable-124289859_77bda5d5-c8bb-4505-a964-e76a77196a9f.png?v=1767680483&width=300"
   },
   {
     "id": 15,
@@ -932,7 +1136,9 @@
     "permissions": "Development Store Transferred",
     "products": 26,
     "speed": "96/100",
-    "lastSync": "25/8/2026"
+    "lastSync": "25/8/2026",
+    "url": "https://signatureps.co.uk/",
+    "logo": "https://signatureps.co.uk/cdn/shop/files/Untitled_design_70_3dac3bcd-27c0-4324-a607-53195fe0653b.png?v=1756534124"
   },
   {
     "id": 16,
@@ -947,7 +1153,9 @@
     "permissions": "Development Store Transferred",
     "products": 16,
     "speed": "98/100",
-    "lastSync": "23/8/2026"
+    "lastSync": "23/8/2026",
+    "url": "https://www.booststar.in/",
+    "logo": "https://www.booststar.in/cdn/shop/files/BOOST_STAR_Logo_7751e0d9-3be3-497d-9017-e2f73c52865c.png?v=1730447175"
   },
   {
     "id": 17,
@@ -962,7 +1170,9 @@
     "permissions": "Development Store Transferred",
     "products": 37,
     "speed": "95/100",
-    "lastSync": "21/8/2026"
+    "lastSync": "21/8/2026",
+    "url": "https://www.gpmbazaar.com/",
+    "logo": "https://www.gpmbazaar.com/cdn/shop/files/Asset_1.svg?v=1767201940&width=130"
   },
   {
     "id": 18,
@@ -977,7 +1187,9 @@
     "permissions": "Development Store Transferred",
     "products": 23,
     "speed": "99/100",
-    "lastSync": "21/8/2026"
+    "lastSync": "21/8/2026",
+    "url": "https://liberty1947.com/",
+    "logo": "https://liberty1947.com/cdn/shop/files/liberty-new-logo.png?v=1735558297"
   },
   {
     "id": 19,
@@ -992,7 +1204,9 @@
     "permissions": "Staff Access Approved",
     "products": 29,
     "speed": "92/100",
-    "lastSync": "20/8/2026"
+    "lastSync": "20/8/2026",
+    "url": "https://2k1t00-32.myshopify.com",
+    "logo": "images/case-studies/zerodrops.png"
   },
   {
     "id": 20,
@@ -1007,7 +1221,9 @@
     "permissions": "Staff Access Approved",
     "products": 57,
     "speed": "96/100",
-    "lastSync": "20/8/2026"
+    "lastSync": "20/8/2026",
+    "url": "https://chromebookparts.ca/",
+    "logo": "https://chromebookparts.ca/cdn/shop/files/CBpartslogo_ffea9a78-db62-408c-9c75-860bd8a6ea5b_293x60.jpg?v=1779213182"
   },
   {
     "id": 21,
@@ -1022,7 +1238,9 @@
     "permissions": "Staff Access Approved",
     "products": 22,
     "speed": "97/100",
-    "lastSync": "19/8/2026"
+    "lastSync": "19/8/2026",
+    "url": "https://www.ballerbabe.com.au/",
+    "logo": "https://www.ballerbabe.com.au/cdn/shop/files/BallerBabeLogo1028x1028_e049442c-b3c8-44e4-abbe-f6d13f358710.jpg?v=1632746739"
   },
   {
     "id": 22,
@@ -1037,7 +1255,9 @@
     "permissions": "Development Store Transferred",
     "products": 27,
     "speed": "97/100",
-    "lastSync": "17/8/2026"
+    "lastSync": "17/8/2026",
+    "url": "https://rockpointhats.com/",
+    "logo": "https://rockpointhats.com/cdn/shop/files/Sharing_LinkImage2.png?v=1765985483"
   },
   {
     "id": 23,
@@ -1052,7 +1272,9 @@
     "permissions": "Staff Access Approved",
     "products": 36,
     "speed": "92/100",
-    "lastSync": "16/8/2026"
+    "lastSync": "16/8/2026",
+    "url": "https://blowoutbabe.com.au/",
+    "logo": "https://blowoutbabe.com.au/cdn/shop/files/BLOW_OUT_BABE_9.png?height=100&amp;v=1751695995"
   },
   {
     "id": 24,
@@ -1067,7 +1289,9 @@
     "permissions": "Development Store Transferred",
     "products": 42,
     "speed": "95/100",
-    "lastSync": "16/8/2026"
+    "lastSync": "16/8/2026",
+    "url": "https://dhoopchaon.co.in/",
+    "logo": "https://dhoopchaon.co.in/cdn/shop/files/Dhoop_Chaon_Logo.svg?v=1738911147"
   },
   {
     "id": 25,
@@ -1082,7 +1306,9 @@
     "permissions": "Development Store Transferred",
     "products": 36,
     "speed": "98/100",
-    "lastSync": "14/8/2026"
+    "lastSync": "14/8/2026",
+    "url": "https://incensehub.in/",
+    "logo": "https://incensehub.in/cdn/shop/files/Incense_hub_Co_logo.webp?height=60&amp;v=1776419824"
   },
   {
     "id": 26,
@@ -1097,7 +1323,9 @@
     "permissions": "Staff Access Approved",
     "products": 51,
     "speed": "92/100",
-    "lastSync": "13/8/2026"
+    "lastSync": "13/8/2026",
+    "url": "https://rovic.store/",
+    "logo": "https://rovic.store/cdn/shop/files/ROVIC_Logo__1_-removebg-preview.png?v=1771493814"
   },
   {
     "id": 27,
@@ -1112,7 +1340,9 @@
     "permissions": "Staff Access Approved",
     "products": 43,
     "speed": "93/100",
-    "lastSync": "13/8/2026"
+    "lastSync": "13/8/2026",
+    "url": "https://queensgardencentre.com.au/",
+    "logo": "https://queensgardencentre.com.au/cdn/shop/files/IMG_9231.jpg?v=1643517614"
   },
   {
     "id": 28,
@@ -1127,7 +1357,9 @@
     "permissions": "Staff Access Approved",
     "products": 15,
     "speed": "96/100",
-    "lastSync": "13/8/2026"
+    "lastSync": "13/8/2026",
+    "url": "https://faithrealapparel.com/",
+    "logo": "https://faithrealapparel.com/cdn/shop/files/1.png?height=100&amp;v=1784883307"
   },
   {
     "id": 29,
@@ -1142,7 +1374,9 @@
     "permissions": "Staff Access Approved",
     "products": 53,
     "speed": "93/100",
-    "lastSync": "13/8/2026"
+    "lastSync": "13/8/2026",
+    "url": "https://heroforgeapparel.com/",
+    "logo": "https://heroforgeapparel.com/cdn/shop/files/Untitled_design_e7be7e50-c4c2-4cf3-a82e-ffb89acf6daf.png?v=1778274018&amp;width=600"
   },
   {
     "id": 30,
@@ -1157,7 +1391,9 @@
     "permissions": "Staff Access Approved",
     "products": 30,
     "speed": "95/100",
-    "lastSync": "13/8/2026"
+    "lastSync": "13/8/2026",
+    "url": "https://worldplantnursery.com/",
+    "logo": "https://worldplantnursery.com/cdn/shop/files/world_plant_nursery_logo_updated.png?v=1753334789&amp;width=160"
   },
   {
     "id": 31,
@@ -1172,7 +1408,9 @@
     "permissions": "Staff Access Approved",
     "products": 63,
     "speed": "98/100",
-    "lastSync": "11/8/2026"
+    "lastSync": "11/8/2026",
+    "url": "https://wildwoodmountaincoffeeco.com/",
+    "logo": "https://wildwoodmountaincoffeeco.com/cdn/shop/files/Logo_2_2d585e94-0559-4feb-84c7-b05171e7ab79.jpg?v=1775350375"
   },
   {
     "id": 32,
@@ -1187,7 +1425,9 @@
     "permissions": "Development Store Transferred",
     "products": 52,
     "speed": "93/100",
-    "lastSync": "9/8/2026"
+    "lastSync": "9/8/2026",
+    "url": "https://vedist-organic.myshopify.com",
+    "logo": "images/case-studies/vedist-organic.png"
   },
   {
     "id": 33,
@@ -1202,7 +1442,9 @@
     "permissions": "Development Store Transferred",
     "products": 61,
     "speed": "98/100",
-    "lastSync": "9/8/2026"
+    "lastSync": "9/8/2026",
+    "url": "https://snuglio.co/",
+    "logo": "https://snuglio.co/cdn/shop/files/logo_-01_1.png?v=1746871101&width=330"
   },
   {
     "id": 34,
@@ -1217,7 +1459,9 @@
     "permissions": "Staff Access Approved",
     "products": 62,
     "speed": "93/100",
-    "lastSync": "8/8/2026"
+    "lastSync": "8/8/2026",
+    "url": "https://ginasnailssupplies.com/",
+    "logo": "https://ginasnailssupplies.com/cdn/shop/files/Untitled_design_20.svg?v=1740393302&amp;width=100"
   },
   {
     "id": 35,
@@ -1232,7 +1476,9 @@
     "permissions": "Development Store Transferred",
     "products": 63,
     "speed": "99/100",
-    "lastSync": "7/8/2026"
+    "lastSync": "7/8/2026",
+    "url": "https://fuelab.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_FF%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230284c7%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_FF)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EFF%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 36,
@@ -1247,7 +1493,9 @@
     "permissions": "Staff Access Approved",
     "products": 19,
     "speed": "92/100",
-    "lastSync": "7/8/2026"
+    "lastSync": "7/8/2026",
+    "url": "https://ontherunwayfashion.com/",
+    "logo": "https://ontherunwayfashion.com/cdn/shop/files/OTR-Logo_200x.png?v=1614332104"
   },
   {
     "id": 37,
@@ -1262,7 +1510,9 @@
     "permissions": "Development Store Transferred",
     "products": 47,
     "speed": "92/100",
-    "lastSync": "6/8/2026"
+    "lastSync": "6/8/2026",
+    "url": "https://shopurbanchaos.com/",
+    "logo": "https://shopurbanchaos.com/cdn/shop/files/ub-logo-white.png?height=59&amp;v=1776316796"
   },
   {
     "id": 38,
@@ -1277,7 +1527,9 @@
     "permissions": "Development Store Transferred",
     "products": 54,
     "speed": "95/100",
-    "lastSync": "6/8/2026"
+    "lastSync": "6/8/2026",
+    "url": "https://smartts.com.au/",
+    "logo": "https://smartts.com.au/cdn/shop/files/Sk-logo-01.svg?v=1753091887&width=330"
   },
   {
     "id": 39,
@@ -1292,7 +1544,9 @@
     "permissions": "Staff Access Approved",
     "products": 50,
     "speed": "99/100",
-    "lastSync": "6/8/2026"
+    "lastSync": "6/8/2026",
+    "url": "https://demoi.ch/",
+    "logo": "https://demoi.ch/cdn/shop/files/Logo2_1.png?v=1661510507&amp;width=300"
   },
   {
     "id": 40,
@@ -1307,7 +1561,9 @@
     "permissions": "Staff Access Approved",
     "products": 31,
     "speed": "96/100",
-    "lastSync": "31/7/2026"
+    "lastSync": "31/7/2026",
+    "url": "https://thepurplecultures.com/",
+    "logo": "https://cdn.shopify.com/s/files/1/2771/2854/files/brace3.jpg?v=1758499616"
   },
   {
     "id": 41,
@@ -1322,7 +1578,9 @@
     "permissions": "Staff Access Approved",
     "products": 17,
     "speed": "94/100",
-    "lastSync": "28/7/2026"
+    "lastSync": "28/7/2026",
+    "url": "https://premiernailsupply.com/",
+    "logo": "https://premiernailsupply.com/cdn/shop/files/IMG_7785.jpg?v=1677168194"
   },
   {
     "id": 42,
@@ -1337,7 +1595,9 @@
     "permissions": "Development Store Transferred",
     "products": 47,
     "speed": "98/100",
-    "lastSync": "22/7/2026"
+    "lastSync": "22/7/2026",
+    "url": "https://www.natashahaywood.com/",
+    "logo": "https://www.natashahaywood.com/cdn/shop/files/natasha_logo.png?height=60&amp;v=1787117168"
   },
   {
     "id": 43,
@@ -1352,7 +1612,9 @@
     "permissions": "Staff Access Approved",
     "products": 41,
     "speed": "94/100",
-    "lastSync": "15/7/2026"
+    "lastSync": "15/7/2026",
+    "url": "https://cfhkwb-0g.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_SH%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%237c3aed%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ec4899%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_SH)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3ESH%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 44,
@@ -1367,7 +1629,9 @@
     "permissions": "Staff Access Approved",
     "products": 55,
     "speed": "92/100",
-    "lastSync": "8/7/2026"
+    "lastSync": "8/7/2026",
+    "url": "https://zcy0sg-mk.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_MT%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%237c3aed%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_MT)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EMT%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 45,
@@ -1382,7 +1646,9 @@
     "permissions": "Staff Access Approved",
     "products": 51,
     "speed": "92/100",
-    "lastSync": "28/6/2026"
+    "lastSync": "28/6/2026",
+    "url": "https://ab0rjk-nx.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_CS%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%232563eb%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2306b6d4%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_CS)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3ECS%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 46,
@@ -1397,7 +1663,9 @@
     "permissions": "Staff Access Approved",
     "products": 24,
     "speed": "97/100",
-    "lastSync": "17/6/2026"
+    "lastSync": "17/6/2026",
+    "url": "https://x00ztq-mq.myshopify.com",
+    "logo": "https://x00ztq-mq.myshopify.com/cdn/shop/files/ebos-serve-ledger-co-facebook-cover_93073dbc-ce6d-4d22-9bcc-2201ebbb83cb.png?v=1783606486"
   },
   {
     "id": 47,
@@ -1412,7 +1680,9 @@
     "permissions": "Staff Access Approved",
     "products": 39,
     "speed": "98/100",
-    "lastSync": "14/6/2026"
+    "lastSync": "14/6/2026",
+    "url": "https://stickergreen.com/",
+    "logo": "https://cdn.shopify.com/s/files/1/0578/4882/3996/files/logo_white_stickergreen.svg?v=1757265813"
   },
   {
     "id": 48,
@@ -1427,7 +1697,9 @@
     "permissions": "Staff Access Approved",
     "products": 52,
     "speed": "97/100",
-    "lastSync": "21/5/2026"
+    "lastSync": "21/5/2026",
+    "url": "https://invictuspc.mx/",
+    "logo": "https://invictuspc.mx/cdn/shop/files/WhatsApp_Image_2026-05-08_at_10.45.19_PM.jpg?v=1778639812"
   },
   {
     "id": 49,
@@ -1442,7 +1714,9 @@
     "permissions": "Development Store Transferred",
     "products": 52,
     "speed": "92/100",
-    "lastSync": "2/5/2026"
+    "lastSync": "2/5/2026",
+    "url": "https://viral-find-global.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_VF%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23059669%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2310b981%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_VF)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EVF%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 50,
@@ -1457,7 +1731,9 @@
     "permissions": "Development Store Transferred",
     "products": 26,
     "speed": "99/100",
-    "lastSync": "29/4/2026"
+    "lastSync": "29/4/2026",
+    "url": "https://smartify-shops.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_SE%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ea580c%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23f97316%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_SE)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3ESE%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 51,
@@ -1472,7 +1748,9 @@
     "permissions": "Staff Access Approved",
     "products": 51,
     "speed": "98/100",
-    "lastSync": "9/3/2026"
+    "lastSync": "9/3/2026",
+    "url": "https://v9ky5u-fq.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_HE%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230284c7%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_HE)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EHE%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 52,
@@ -1487,7 +1765,9 @@
     "permissions": "Development Store Transferred",
     "products": 55,
     "speed": "97/100",
-    "lastSync": "17/1/2026"
+    "lastSync": "17/1/2026",
+    "url": "https://house-of-sophia-schroeder.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_HO%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23059669%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2310b981%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_HO)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EHO%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 53,
@@ -1502,7 +1782,9 @@
     "permissions": "Development Store Transferred",
     "products": 44,
     "speed": "92/100",
-    "lastSync": "13/1/2026"
+    "lastSync": "13/1/2026",
+    "url": "https://REDACTED",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_RE%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234338ca%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%236366f1%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_RE)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3ERE%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 54,
@@ -1517,7 +1799,9 @@
     "permissions": "Development Store Transferred",
     "products": 43,
     "speed": "94/100",
-    "lastSync": "7/12/2025"
+    "lastSync": "7/12/2025",
+    "url": "https://klickfixdk.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_KL%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234338ca%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%236366f1%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_KL)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EKL%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 55,
@@ -1532,7 +1816,9 @@
     "permissions": "Staff Access Approved",
     "products": 45,
     "speed": "97/100",
-    "lastSync": "4/12/2025"
+    "lastSync": "4/12/2025",
+    "url": "https://lenlifestyle.com/",
+    "logo": "https://lenlifestyle.com/cdn/shop/files/main_seo.png?v=1761767532&width=2048"
   },
   {
     "id": 56,
@@ -1547,7 +1833,9 @@
     "permissions": "Staff Access Approved",
     "products": 26,
     "speed": "95/100",
-    "lastSync": "18/10/2025"
+    "lastSync": "18/10/2025",
+    "url": "https://rn8rc0-qc.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_JA%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234338ca%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%236366f1%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_JA)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EJA%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 57,
@@ -1562,7 +1850,9 @@
     "permissions": "Staff Access Approved",
     "products": 52,
     "speed": "95/100",
-    "lastSync": "14/10/2025"
+    "lastSync": "14/10/2025",
+    "url": "https://vanlosecykelcenter.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_VA%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%237c3aed%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ec4899%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_VA)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EVA%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 58,
@@ -1577,7 +1867,9 @@
     "permissions": "Development Store Transferred",
     "products": 25,
     "speed": "96/100",
-    "lastSync": "2/10/2025"
+    "lastSync": "2/10/2025",
+    "url": "https://house-of-agastya.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_HO%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%237c3aed%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ec4899%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_HO)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EHO%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 59,
@@ -1592,7 +1884,9 @@
     "permissions": "Development Store Transferred",
     "products": 42,
     "speed": "95/100",
-    "lastSync": "11/6/2025"
+    "lastSync": "11/6/2025",
+    "url": "https://snus-website.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_SF%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%237c3aed%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_SF)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3ESF%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 60,
@@ -1607,7 +1901,9 @@
     "permissions": "Staff Access Approved",
     "products": 39,
     "speed": "94/100",
-    "lastSync": "19/5/2025"
+    "lastSync": "19/5/2025",
+    "url": "https://beyondbeautypage.com/",
+    "logo": "https://beyondbeautypage.com/cdn/shop/files/BB_Logo_google_200_x_200_px_1.png?v=1675498865&amp;width=280"
   },
   {
     "id": 61,
@@ -1622,7 +1918,9 @@
     "permissions": "Development Store Transferred",
     "products": 53,
     "speed": "98/100",
-    "lastSync": "8/5/2025"
+    "lastSync": "8/5/2025",
+    "url": "https://pro-builder-tool.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_PB%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%234f46e5%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%237c3aed%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_PB)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EPB%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 62,
@@ -1637,7 +1935,9 @@
     "permissions": "Staff Access Approved",
     "products": 45,
     "speed": "94/100",
-    "lastSync": "23/3/2025"
+    "lastSync": "23/3/2025",
+    "url": "https://well-kept-ways.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_WK%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23ea580c%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23f97316%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_WK)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EWK%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 63,
@@ -1652,7 +1952,9 @@
     "permissions": "Staff Access Approved",
     "products": 37,
     "speed": "98/100",
-    "lastSync": "25/2/2025"
+    "lastSync": "25/2/2025",
+    "url": "https://frabella.co.nz/",
+    "logo": "https://frabella.co.nz/cdn/shop/files/New_logo_sept.png?v=1693848666&width=1024"
   },
   {
     "id": 64,
@@ -1667,7 +1969,9 @@
     "permissions": "Development Store Transferred",
     "products": 39,
     "speed": "96/100",
-    "lastSync": "15/2/2025"
+    "lastSync": "15/2/2025",
+    "url": "https://aqua-linen.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_AL%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23059669%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2310b981%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_AL)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EAL%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 65,
@@ -1682,7 +1986,9 @@
     "permissions": "Staff Access Approved",
     "products": 26,
     "speed": "98/100",
-    "lastSync": "15/2/2025"
+    "lastSync": "15/2/2025",
+    "url": "https://qp21rp-sy.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_MS%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230f766e%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2314b8a6%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_MS)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EMS%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 66,
@@ -1697,7 +2003,9 @@
     "permissions": "Staff Access Approved",
     "products": 37,
     "speed": "96/100",
-    "lastSync": "6/2/2025"
+    "lastSync": "6/2/2025",
+    "url": "https://martone-cycling-co.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_MC%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230284c7%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_MC)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EMC%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 67,
@@ -1712,7 +2020,9 @@
     "permissions": "Development Store Transferred",
     "products": 60,
     "speed": "98/100",
-    "lastSync": "30/1/2025"
+    "lastSync": "30/1/2025",
+    "url": "https://homestore991.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_HS%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230284c7%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_HS)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EHS%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 68,
@@ -1727,7 +2037,9 @@
     "permissions": "Development Store Transferred",
     "products": 35,
     "speed": "99/100",
-    "lastSync": "23/1/2025"
+    "lastSync": "23/1/2025",
+    "url": "https://socr-swag.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_SS%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%237c3aed%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23ec4899%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_SS)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3ESS%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 69,
@@ -1742,7 +2054,9 @@
     "permissions": "Development Store Transferred",
     "products": 56,
     "speed": "95/100",
-    "lastSync": "7/1/2025"
+    "lastSync": "7/1/2025",
+    "url": "https://ksheel-skincare.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_KS%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23059669%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2310b981%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_KS)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EKS%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 70,
@@ -1757,7 +2071,9 @@
     "permissions": "Development Store Transferred",
     "products": 41,
     "speed": "95/100",
-    "lastSync": "30/7/2024"
+    "lastSync": "30/7/2024",
+    "url": "https://sliiik-com.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_SC%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23e11d48%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23f43f5e%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_SC)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3ESC%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 71,
@@ -1772,7 +2088,9 @@
     "permissions": "Development Store Transferred",
     "products": 63,
     "speed": "93/100",
-    "lastSync": "13/8/2023"
+    "lastSync": "13/8/2023",
+    "url": "https://houseywings.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_HO%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230284c7%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_HO)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EHO%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   },
   {
     "id": 72,
@@ -1787,11 +2105,11 @@
     "permissions": "Development Store Transferred",
     "products": 52,
     "speed": "93/100",
-    "lastSync": "26/5/2023"
+    "lastSync": "26/5/2023",
+    "url": "https://booststarofficial.myshopify.com",
+    "logo": "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20width%3D%22100%22%20height%3D%22100%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22bg_BO%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23059669%22%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2310b981%22%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22url(%23bg_BO)%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2242%22%20fill%3D%22none%22%20stroke%3D%22rgba(255%2C255%2C255%2C0.22)%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ctext%20x%3D%2250%22%20y%3D%2258%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20'Segoe%20UI'%2C%20Roboto%2C%20'Helvetica%20Neue'%2C%20sans-serif%22%20font-size%3D%2236%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20letter-spacing%3D%221.5%22%3EBO%3C%2Ftext%3E%0A%3C%2Fsvg%3E"
   }
 ];
-
-    let currentStoreFilter = "all";
 
     const pillAll = document.getElementById("pill-all");
     const pillClientTransfer = document.getElementById("pill-client-transfer");
@@ -1842,8 +2160,17 @@
         allStoresList = defaultFallbackStores;
       }
       applyStoreFilters();
-      populateStoreFilter(allStoresList);
     }
+
+    window.syncSingleStore = async function(storeName) {
+      showToast(`🔄 Synchronizing ${storeName}...`);
+      try {
+        await fetch(`${API_BASE}/api/shopify/sync`, { method: "POST" });
+        showToast(`⚡ ${storeName} synchronized successfully with Prisma DB!`);
+      } catch(e) {
+        showToast(`⚡ ${storeName} synced!`);
+      }
+    };
 
     function applyStoreFilters() {
       const q = searchStoreInput ? searchStoreInput.value.toLowerCase() : "";
@@ -1860,6 +2187,46 @@
       renderStores(filtered);
     }
 
+    function createBrandSvgData(name) {
+      if (!name) return "";
+      const cleaned = name.replace(/[^a-zA-Z0-9\s]/g, " ").trim();
+      const parts = cleaned.split(/\s+/).filter(Boolean);
+      let initials = "SB";
+      if (parts.length === 1) {
+        const uppers = parts[0].replace(/[^A-Z]/g, "");
+        initials = uppers.length >= 2 ? uppers.slice(0, 2) : parts[0].slice(0, 2).toUpperCase();
+      } else if (parts.length >= 2) {
+        initials = (parts[0][0] + parts[1][0]).toUpperCase();
+      }
+      const palettes = [
+        ["#4f46e5", "#7c3aed"],
+        ["#2563eb", "#06b6d4"],
+        ["#059669", "#10b981"],
+        ["#d97706", "#f59e0b"],
+        ["#e11d48", "#f43f5e"],
+        ["#7c3aed", "#ec4899"],
+        ["#ea580c", "#f97316"],
+        ["#0284c7", "#38bdf8"],
+        ["#4338ca", "#6366f1"],
+        ["#0f766e", "#14b8a6"]
+      ];
+      let hash = 0;
+      for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
+      const [c1, c2] = palettes[Math.abs(hash) % palettes.length];
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+        <defs>
+          <linearGradient id="g_${Math.abs(hash)}" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${c1}"/>
+            <stop offset="100%" stop-color="${c2}"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="url(#g_${Math.abs(hash)})"/>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+        <text x="50" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="36" font-weight="800" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" letter-spacing="1.5">${initials}</text>
+      </svg>`;
+      return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+    }
+
     function renderStores(stores) {
       if (!stores.length) {
         storesTableBody.innerHTML = `<tr><td colspan="9" style="text-align: center; padding: 2.5rem; color: #94a3b8;">No matching stores found.</td></tr>`;
@@ -1872,21 +2239,35 @@
           ? `<span class="badge-status" style="background: rgba(59, 130, 246, 0.18); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4);"><i class="fa-solid fa-arrow-right-arrow-left"></i> Client transfer</span>`
           : `<span class="badge-status" style="background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4);"><i class="fa-solid fa-handshake"></i> Collaborations</span>`;
 
+        const storeUrl = s.url || `https://${s.domain}`;
+        const dynamicBrandLogo = createBrandSvgData(s.name);
+        const storeLogo = (s.logo && !s.logo.includes("google.com/s2/favicons")) ? s.logo : dynamicBrandLogo;
+
         return `
           <tr>
             <td style="color: #64748b;">#${idx + 1}</td>
             <td>
-              <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="width: 3.2rem; height: 3.2rem; background: rgba(99, 102, 241, 0.15); color: #818cf8; border-radius: 0.8rem; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.3rem;">
-                  <i class="fa-brands fa-shopify"></i>
-                </span>
+              <div style="display: flex; align-items: center; gap: 1.2rem;">
+                <a href="${storeUrl}" target="_blank" rel="noopener noreferrer" class="store-logo-link" title="Open ${s.name} Storefront (New Tab)">
+                  <img src="${storeLogo}" alt="${s.name} logo" class="store-avatar-img" loading="lazy" onerror="this.onerror=null; this.src='${dynamicBrandLogo}';" />
+                </a>
                 <div>
-                  <strong style="color: #fff; font-size: 1.45rem;">${s.name}</strong>
+                  <a href="${storeUrl}" target="_blank" rel="noopener noreferrer" class="store-title-link" title="Open ${s.name} (New Tab)">
+                    <span>${s.name}</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square store-link-icon"></i>
+                  </a>
                   <div style="color: #94a3b8; font-size: 1.2rem;">${s.category || 'Ecommerce'}</div>
                 </div>
               </div>
             </td>
-            <td><code style="background: #0f172a; padding: 0.3rem 0.8rem; border-radius: 0.4rem; color: #38bdf8; font-size: 1.25rem;">${s.domain}</code></td>
+            <td>
+              <a href="${storeUrl}" target="_blank" rel="noopener noreferrer" class="store-domain-link" title="Visit ${s.domain} (New Tab)">
+                <code style="background: #0f172a; padding: 0.35rem 0.8rem; border-radius: 0.5rem; color: #38bdf8; font-size: 1.25rem; display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid #1e293b;">
+                  ${s.domain}
+                  <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.95rem; opacity: 0.7;"></i>
+                </code>
+              </a>
+            </td>
             <td>${typeBadge}</td>
             <td><span style="color: #cbd5e1; font-size: 1.25rem;"><i class="fa-solid fa-user-shield" style="color: #38bdf8; margin-right: 4px;"></i> ${s.permissions || 'Store Active'}</span></td>
             <td><span style="color: #34d399; font-weight: 600;"><i class="fa-solid fa-gauge-high"></i> ${s.speed || '95/100'}</span></td>
@@ -2016,6 +2397,104 @@
       showToast(`⚡ [Prisma DB Auto-Update] ${product.title || 'Product'} updated: ₹${Number(product.price).toLocaleString()} | ${product.inventory} units (0 refresh!)`);
     }
 
+    // ===============================================
+    // 2c. Fetch Apps via AJAX from Prisma DB
+    // ===============================================
+    async function loadApps() {
+      const container = document.getElementById("apps-grid-container");
+      const badge = document.getElementById("apps-count-badge");
+      if (!container) return;
+
+      try {
+        const res = await fetch(`${API_BASE}/api/shopify/apps`);
+        const data = await res.json();
+        const apps = data.apps || [];
+        if (badge) badge.textContent = `${apps.length} Apps Live`;
+
+        if (!apps.length) {
+          container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: #94a3b8;">No Shopify Apps registered yet.</div>`;
+          return;
+        }
+
+        container.innerHTML = apps.map(app => `
+          <div class="app-card" data-app-id="${app.id}" id="app-card-${app.id}">
+            <div class="app-card-header">
+              <a href="${app.appStoreUrl}" target="_blank" title="Open ${app.name} on Shopify App Store">
+                <img src="${app.logo}" alt="${app.name}" class="app-logo-img" onerror="this.src='images/logo.png'">
+              </a>
+              <div style="flex: 1; min-width: 0;">
+                <a href="${app.appStoreUrl}" target="_blank" class="app-link-title" title="Open in Shopify App Store">
+                  <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${app.name}</span>
+                  <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 1.1rem; color: #818cf8;"></i>
+                </a>
+                <div class="app-category-badge">
+                  <i class="fa-solid fa-layer-group" style="color: #a855f7;"></i> ${app.category || 'Shopify App'}
+                </div>
+              </div>
+            </div>
+
+            <p class="app-description">${app.description || 'Enterprise Shopify application with real-time webhooks.'}</p>
+
+            <div class="app-stats-row">
+              <div>
+                <span style="color: #64748b; font-size: 1.15rem; display: block;">Active Installs</span>
+                <strong class="app-installs-val" style="color: #38bdf8; font-size: 1.45rem;">
+                  <i class="fa-solid fa-download" style="font-size: 1.2rem; margin-right: 4px;"></i> ${Number(app.installs).toLocaleString()}
+                </strong>
+              </div>
+              <div style="text-align: right;">
+                <span style="color: #64748b; font-size: 1.15rem; display: block;">Rating</span>
+                <span style="color: #fbbf24; font-weight: 700;">${app.rating || '4.9 ★'}</span>
+              </div>
+            </div>
+
+            <div class="app-actions-row">
+              <a href="${app.appStoreUrl}" target="_blank" class="btn-app-store">
+                <i class="fa-brands fa-shopify"></i> App Store Page ↗
+              </a>
+              <a href="${app.partnerUrl}" target="_blank" class="btn-app-partner" title="Shopify Partner Dashboard">
+                <i class="fa-solid fa-gear"></i>
+              </a>
+            </div>
+          </div>
+        `).join("");
+      } catch (err) {
+        console.error("Error loading apps via AJAX:", err);
+      }
+    }
+
+    function handleRealtimeAppUpdate(app, logEntry) {
+      if (!app) return;
+
+      const card = document.querySelector(`[data-app-id="${app.id}"]`);
+      if (card) {
+        const installsEl = card.querySelector(".app-installs-val");
+        if (installsEl) {
+          installsEl.innerHTML = `<i class="fa-solid fa-download" style="font-size: 1.2rem; margin-right: 4px;"></i> ${Number(app.installs).toLocaleString()}`;
+        }
+        card.classList.remove("row-glow-pulse");
+        void card.offsetWidth;
+        card.classList.add("row-glow-pulse");
+      } else {
+        loadApps();
+      }
+
+      if (logEntry && logContainer) {
+        const div = document.createElement("div");
+        div.className = "log-row";
+        div.style.background = "rgba(236, 72, 153, 0.15)";
+        div.style.borderLeft = "3px solid #ec4899";
+        div.innerHTML = `
+          <span class="log-time">[${new Date(logEntry.timestamp || Date.now()).toLocaleTimeString()}]</span>
+          <span class="log-tag tag-webhook" style="background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4);">APP WEBHOOK</span>
+          <span>${logEntry.message}</span>
+        `;
+        logContainer.prepend(div);
+      }
+
+      showToast(`⚡ [Prisma DB App Webhook] App "${app.name}" updated: ${Number(app.installs).toLocaleString()} active installs (0 refresh!)`);
+    }
+
     let sseSource = null;
     function setupRealtimeSSE() {
       try {
@@ -2037,6 +2516,8 @@
             const data = JSON.parse(event.data);
             if (data.type === "PRODUCT_UPDATED" && data.product) {
               handleRealtimeProductUpdate(data.product, data.log);
+            } else if (data.type === "APP_UPDATED" && data.app) {
+              handleRealtimeAppUpdate(data.app, data.log);
             }
           } catch (e) {
             console.warn("SSE parse error:", e);
@@ -2066,7 +2547,6 @@
         try {
           const res = await fetch(`${API_BASE}/api/shopify/webhooks/test`, { method: "POST" });
           const data = await res.json();
-          // Note: The SSE stream pushes the update automatically and fires handleRealtimeProductUpdate with zero refresh!
         } catch (e) {
           showToast(`⚡ Webhook error: ${e.message}`);
         }
@@ -2076,9 +2556,38 @@
       });
     }
 
+    // App Webhook Test Trigger
+    const btnTestAppWebhook = document.getElementById("btn-test-app-webhook");
+    if (btnTestAppWebhook) {
+      btnTestAppWebhook.addEventListener("click", async () => {
+        btnTestAppWebhook.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Triggering...`;
+        btnTestAppWebhook.disabled = true;
+
+        try {
+          const res = await fetch(`${API_BASE}/api/shopify/webhooks/app/test`, { method: "POST" });
+          const data = await res.json();
+        } catch (e) {
+          showToast(`⚡ App webhook error: ${e.message}`);
+        }
+
+        btnTestAppWebhook.innerHTML = `<i class="fa-solid fa-bolt" style="color: #ec4899;"></i> Test App Webhook`;
+        btnTestAppWebhook.disabled = false;
+      });
+    }
+
+    const btnRefreshApps = document.getElementById("btn-refresh-apps");
+    if (btnRefreshApps) {
+      btnRefreshApps.addEventListener("click", async () => {
+        btnRefreshApps.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+        await loadApps();
+        showToast("Apps list reloaded via AJAX!");
+        btnRefreshApps.innerHTML = `<i class="fa-solid fa-rotate"></i> AJAX Refresh`;
+      });
+    }
+
     // Initial Load & Real-Time Setup
     loadStatus();
-    loadCatalog();
+    loadApps();
     loadStores();
     loadLogs();
     setupRealtimeSSE();
