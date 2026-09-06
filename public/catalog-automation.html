@@ -2241,7 +2241,7 @@
 
         const storeUrl = s.url || `https://${s.domain}`;
         const dynamicBrandLogo = createBrandSvgData(s.name);
-        const storeLogo = (s.logo && !s.logo.includes("google.com/s2/favicons")) ? s.logo : dynamicBrandLogo;
+        const storeLogo = s.icon || s.logo || dynamicBrandLogo;
 
         return `
           <tr>
